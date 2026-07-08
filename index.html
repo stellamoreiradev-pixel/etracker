@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ETracker</title>
+<title>DATAPREV Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -958,8 +958,8 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-logo">
-    ENEM<br>Tracker
-    <small>Curso Ferretto · 2026</small>
+    DATAPREV<br>Tracker
+    <small>FGV · Perfil 3 · 2026</small>
   </div>
   <nav class="nav">
     <button class="nav-item active" onclick="showView('dashboard')" data-view="dashboard">
@@ -968,7 +968,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
     </button>
     <button class="nav-item" onclick="showView('conteudo')" data-view="conteudo">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h10"/></svg>
-      Conteúdos Ferretto
+      Edital Dataprev
     </button>
     <button class="nav-item" onclick="showView('sessoes')" data-view="sessoes">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
@@ -1019,13 +1019,13 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
     <div id="dashboard-performance"></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
       <div>
-        <div class="section-header"><span class="section-title">Progresso por área</span></div>
+        <div class="section-header"><span class="section-title">Progresso por módulo</span></div>
         <div class="areas-grid" id="areas-grid"></div>
-        <div class="section-header"><span class="section-title">Mais atrasadas</span></div>
+        <div class="section-header"><span class="section-title">Prioridade de revisão</span></div>
         <div class="dash-list" id="list-atrasadas"></div>
       </div>
       <div>
-        <div class="section-header"><span class="section-title">Mais avançadas</span></div>
+        <div class="section-header"><span class="section-title">Melhor domínio</span></div>
         <div class="dash-list" id="list-avancadas"></div>
         <div class="section-header" style="margin-top:16px"><span class="section-title">Últimas sessões</span></div>
         <div class="sessions-list" id="ultimas-sessoes"></div>
@@ -1033,7 +1033,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
     </div>
   </div>
 
-  <!-- CONTEÚDOS FERRETTO -->
+  <!-- EDITAL DATAPREV -->
   <div class="view" id="view-conteudo">
     <div class="co-layout">
       <div class="co-sidebar" id="co-nav"></div>
@@ -1105,27 +1105,25 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
       <input type="hidden" id="s-edit-id" value="">
       <!-- 1. Área -->
       <div class="form-group">
-        <label class="form-label">1. Área ENEM *</label>
+        <label class="form-label">1. Módulo *</label>
         <select class="form-control" id="s-area" onchange="onSAreaChange()" required>
-          <option value="">— selecione a área —</option>
-          <option value="mat">Matemática e suas Tecnologias</option>
-          <option value="nat">Ciências da Natureza e suas Tecnologias</option>
-          <option value="hum">Ciências Humanas e suas Tecnologias</option>
-          <option value="ling">Linguagens, Códigos e suas Tecnologias</option>
+          <option value="">— selecione o módulo —</option>
+            <option value="modulo_gerais">Módulo I — Conhecimentos Gerais</option>
+            <option value="modulo_especificos">Módulo II — Conhecimentos Específicos</option>
         </select>
       </div>
       <!-- 2. Matéria -->
       <div class="form-group">
-        <label class="form-label">2. Matéria *</label>
+        <label class="form-label">2. Disciplina *</label>
         <select class="form-control" id="s-materia" onchange="onSMateriaChange()" required>
-          <option value="">— selecione a área primeiro —</option>
+          <option value="">— selecione o módulo primeiro —</option>
         </select>
       </div>
       <!-- 3. Assunto -->
       <div class="form-group">
         <label class="form-label">3. Assunto</label>
         <select class="form-control" id="s-assunto" onchange="onSAssuntoChange()">
-          <option value="">— selecione a matéria primeiro —</option>
+          <option value="">— selecione a disciplina primeiro —</option>
         </select>
       </div>
       <!-- 4-5. Data e Duração -->
@@ -1141,13 +1139,20 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
       </div>
       <!-- 6. Tipo principal -->
       <div class="form-group">
-        <label class="form-label">6. Tipo principal da sessão *</label>
+        <label class="form-label">6. Tipo de estudo *</label>
         <select class="form-control" id="s-tipo" required>
-          <option value="aula">Aula / Teoria</option>
-          <option value="exercicios">Exercícios</option>
+          <option value="teoria">Teoria</option>
+          <option value="questoes_fgv">Questões FGV</option>
+          <option value="questoes_gerais">Questões gerais</option>
           <option value="revisao">Revisão</option>
+          <option value="lei_seca">Lei seca</option>
+          <option value="flashcards">Flashcards</option>
           <option value="simulado">Simulado</option>
-          <option value="livro">Livro / Apostila</option>
+          <option value="correcao_simulado">Correção de simulado</option>
+          <option value="caderno_erros">Caderno de erros</option>
+          <option value="feynman">Feynman</option>
+          <option value="pratica">Projeto/prática</option>
+          <option value="revisao_rapida">Revisão rápida</option>
         </select>
       </div>
       <!-- 7. Atividades complementares -->
@@ -1155,7 +1160,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
         <label class="form-label">7. Atividades complementares</label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px">
           <label class="config-row" style="align-items:center;">
-            <input type="checkbox" id="s-ativ-exercicios"> Resolvi exercícios
+            <input type="checkbox" id="s-ativ-exercicios"> Resolvi questões
           </label>
           <label class="config-row" style="align-items:center;">
             <input type="checkbox" id="s-ativ-corrigi-erros"> Corrigi erros
@@ -1186,11 +1191,11 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
       <!-- 10. Fonte -->
       <div class="form-group">
         <label class="form-label">10. Material / fonte</label>
-        <input class="form-control" id="s-fonte" type="text" placeholder="ex: Ferretto — Aula 42" maxlength="80">
+        <input class="form-control" id="s-fonte" type="text" placeholder="ex: edital, PDF da FGV, questão comentada" maxlength="80">
       </div>
       <!-- 11. Aula estudada -->
       <div class="form-group">
-        <label class="form-label">11. Aula estudada (opcional)</label>
+        <label class="form-label">11. Item do edital estudado (opcional)</label>
         <select class="form-control" id="s-aula-especifica">
           <option value="">— nenhuma —</option>
         </select>
@@ -1222,7 +1227,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Nome *</label>
-          <input class="form-control" id="sim-nome" type="text" placeholder="ENEM 2025 — Dia 1" required>
+          <input class="form-control" id="sim-nome" type="text" placeholder="Simulado FGV — Dataprev" required>
         </div>
         <div class="form-group">
           <label class="form-label">Data *</label>
@@ -1246,19 +1251,17 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
     <form id="form-feynman" onsubmit="saveFeynman(event)">
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Área ENEM *</label>
+          <label class="form-label">Módulo *</label>
           <select class="form-control" id="fy-area" onchange="onFYAreaChange()" required>
-            <option value="">— selecione a área —</option>
-            <option value="mat">Matemática e suas Tecnologias</option>
-            <option value="nat">Ciências da Natureza e suas Tecnologias</option>
-            <option value="hum">Ciências Humanas e suas Tecnologias</option>
-            <option value="ling">Linguagens, Códigos e suas Tecnologias</option>
+            <option value="">— selecione o módulo —</option>
+            <option value="modulo_gerais">Módulo I — Conhecimentos Gerais</option>
+            <option value="modulo_especificos">Módulo II — Conhecimentos Específicos</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Matéria *</label>
+          <label class="form-label">Disciplina *</label>
           <select class="form-control" id="fy-materia" onchange="onFYMateriaChange()" required>
-            <option value="">— selecione a área primeiro —</option>
+            <option value="">— selecione o módulo primeiro —</option>
           </select>
         </div>
       </div>
@@ -1266,7 +1269,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
         <div class="form-group">
           <label class="form-label">Assunto *</label>
           <select class="form-control" id="fy-assunto" required>
-            <option value="">— selecione a matéria primeiro —</option>
+            <option value="">— selecione a disciplina primeiro —</option>
           </select>
         </div>
         <div class="form-group">
@@ -1275,12 +1278,12 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Tópico / conceito explicado *</label>
-        <input class="form-control" id="fy-topico" type="text" placeholder="ex: Genética Mendeliana" maxlength="100" required>
+        <label class="form-label">Tema *</label>
+        <input class="form-control" id="fy-topico" type="text" placeholder="ex: LGPD, Spring Boot, REST, SQL" maxlength="100" required>
       </div>
       <div class="form-group">
-        <label class="form-label">Explicação no estilo Feynman *</label>
-        <textarea class="form-control" id="fy-explicacao" rows="5" maxlength="1000" placeholder="Explique o conteúdo em suas próprias palavras." required></textarea>
+        <label class="form-label">Explique como se estivesse ensinando *</label>
+        <textarea class="form-control" id="fy-explicacao" rows="5" maxlength="1000" placeholder="Qual é a regra/conceito central? Onde a FGV pode confundir? Dê um exemplo prático e uma revisão em 30 segundos." required></textarea>
       </div>
       <input type="hidden" id="fy-sessao-id" value="">
       <div class="form-footer">
@@ -1295,283 +1298,1960 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
-//  DADOS — Ferretto ENEM 2026
-//  221 assuntos · 3082 aulas totais
-// ═══════════════════════════════════════════════════════════════════════════
+//  DADOS — DATAPREV 2026 · FGV · Perfil 3
+//  16 disciplinas · 356 itens do edital
 const ENEM_DATA = [
-  {key:'mat',label:'Matemática e suas Tecnologias',color:'#38bdf8',materias:[
-    {key:'matematica',label:'Matemática',assuntos:[
-      {key:'mat_basica',label:'Matemática Básica',totalAulas:70},
-      {key:'conjuntos',label:'Conjuntos',totalAulas:8},
-      {key:'progressoes',label:'Progressões',totalAulas:15},
-      {key:'geo_plana',label:'Geometria Plana',totalAulas:38},
-      {key:'geo_posicao',label:'Geometria de Posição',totalAulas:7},
-      {key:'geo_espacial',label:'Geometria Espacial',totalAulas:26},
-      {key:'estatistica',label:'Estatística',totalAulas:9},
-      {key:'combinatoria',label:'Análise Combinatória',totalAulas:21},
-      {key:'probabilidade',label:'Probabilidade',totalAulas:10},
-      {key:'intro_funcoes',label:'Introdução às Funções',totalAulas:9},
-      {key:'func_afim',label:'Função Afim',totalAulas:9},
-      {key:'func_quad',label:'Função Quadrática',totalAulas:9},
-      {key:'exponencial',label:'Exponencial',totalAulas:8},
-      {key:'logaritmos',label:'Logaritmos',totalAulas:13},
-      {key:'trigonometria',label:'Trigonometria',totalAulas:43},
-      {key:'mat_fin',label:'Matemática Comercial e Financeira',totalAulas:10},
-      {key:'binomio',label:'Binômio de Newton',totalAulas:3},
-      {key:'matrizes',label:'Matrizes',totalAulas:9},
-      {key:'determinantes',label:'Determinantes',totalAulas:11},
-      {key:'sistemas',label:'Sistemas Lineares',totalAulas:12},
-      {key:'geo_analitica',label:'Geometria Analítica',totalAulas:32},
-      {key:'conicas',label:'Cônicas',totalAulas:12},
-      {key:'modulo',label:'Módulo',totalAulas:6},
-      {key:'complexos',label:'Números Complexos',totalAulas:7},
-      {key:'polinomios',label:'Polinômios',totalAulas:8},
-      {key:'eq_algebricas',label:'Equações Algébricas',totalAulas:6},
-    ]}
-  ]},
-  {key:'nat',label:'Ciências da Natureza e suas Tecnologias',color:'#4ade80',materias:[
-    {key:'fisica',label:'Física',assuntos:[
-      {key:'fis_basica',label:'Física Básica',totalAulas:7},
-      {key:'cinematica',label:'Cinemática',totalAulas:41},
-      {key:'dinamica',label:'Dinâmica',totalAulas:37},
-      {key:'gravitacao',label:'Gravitação',totalAulas:6},
-      {key:'estatica',label:'Estática',totalAulas:12},
-      {key:'hidrostatica',label:'Hidrostática',totalAulas:9},
-      {key:'hidrodinamica',label:'Hidrodinâmica',totalAulas:4},
-      {key:'termologia',label:'Termologia',totalAulas:36},
-      {key:'ondas',label:'Ondulatória',totalAulas:14},
-      {key:'mhs',label:'Movimento Harmônico Simples',totalAulas:4},
-      {key:'optica',label:'Óptica',totalAulas:18},
-      {key:'eletrostatica',label:'Eletrostática',totalAulas:18},
-      {key:'eletrodinamica',label:'Eletrodinâmica',totalAulas:18},
-      {key:'eletromag',label:'Eletromagnetismo',totalAulas:12},
-      {key:'fis_moderna',label:'Física Moderna',totalAulas:8},
-      {key:'anal_dim',label:'Análise Dimensional',totalAulas:1},
-      {key:'graficos',label:'Gráficos',totalAulas:2},
-    ]},
-    {key:'quimica',label:'Química',assuntos:[
-      {key:'qui_basica',label:'Química Básica',totalAulas:15},
-      {key:'atomo',label:'Átomo',totalAulas:9},
-      {key:'tab_periodica',label:'Tabela Periódica',totalAulas:5},
-      {key:'ligacoes',label:'Ligações Químicas',totalAulas:14},
-      {key:'nox',label:'NOX / Oxidação / Redução',totalAulas:8},
-      {key:'func_inorg',label:'Funções Inorgânicas',totalAulas:25},
-      {key:'estequiometria',label:'Estequiometria',totalAulas:12},
-      {key:'solucoes',label:'Soluções',totalAulas:16},
-      {key:'termoquimica',label:'Termoquímica',totalAulas:8},
-      {key:'cinetica',label:'Cinética',totalAulas:7},
-      {key:'equilibrio',label:'Equilíbrio Químico',totalAulas:20},
-      {key:'eletroquimica',label:'Eletroquímica',totalAulas:13},
-      {key:'coligativas',label:'Propriedades Coligativas',totalAulas:6},
-      {key:'intro_org',label:'Introdução à Orgânica',totalAulas:8},
-      {key:'hidrocarbonetos',label:'Hidrocarbonetos',totalAulas:8},
-      {key:'func_ox',label:'Funções Oxigenadas',totalAulas:8},
-      {key:'func_nitr',label:'Funções Nitrogenadas',totalAulas:4},
-      {key:'outras_func',label:'Outras Funções',totalAulas:4},
-      {key:'prop_org',label:'Propriedades Orgânicas',totalAulas:5},
-      {key:'isomeria',label:'Isomeria',totalAulas:10},
-      {key:'gases',label:'Gases',totalAulas:6},
-      {key:'radioatividade',label:'Radioatividade',totalAulas:6},
-      {key:'qui_amb',label:'Química Ambiental',totalAulas:5},
-      {key:'agua',label:'Água',totalAulas:5},
-      {key:'reacoes_org',label:'Reações Orgânicas',totalAulas:16},
-    ]},
-    {key:'biologia',label:'Biologia',assuntos:[
-      {key:'intro_bio',label:'Introdução à Biologia',totalAulas:11},
-      {key:'bioquimica',label:'Bioquímica',totalAulas:35},
-      {key:'bio_mol',label:'Biologia Molecular',totalAulas:32},
-      {key:'citologia',label:'Citologia',totalAulas:26},
-      {key:'bioenergetica',label:'Bioenergética',totalAulas:26},
-      {key:'nucleo_div',label:'Núcleo e Divisão Celular',totalAulas:36},
-      {key:'repro_humana',label:'Reprodução Humana',totalAulas:17},
-      {key:'embriologia',label:'Embriologia',totalAulas:14},
-      {key:'histologia',label:'Histologia',totalAulas:64},
-      {key:'fisiologia',label:'Fisiologia',totalAulas:75},
-      {key:'genetica',label:'Genética',totalAulas:50},
-      {key:'origem_vida',label:'Origem da Vida',totalAulas:15},
-      {key:'evolucao',label:'Evolução',totalAulas:39},
-      {key:'taxionomia',label:'Taxionomia',totalAulas:9},
-      {key:'microbiologia',label:'Microbiologia',totalAulas:63},
-      {key:'botanica',label:'Botânica',totalAulas:82},
-      {key:'zoologia',label:'Zoologia',totalAulas:68},
-      {key:'ecologia',label:'Ecologia',totalAulas:74},
-    ]},
-  ]},
-  {key:'hum',label:'Ciências Humanas e suas Tecnologias',color:'#fbbf24',materias:[
-    {key:'hist_geral',label:'História Geral',assuntos:[
-      {key:'ant_oriental',label:'Antiguidade Oriental',totalAulas:12},
-      {key:'ant_classica',label:'Antiguidade Clássica',totalAulas:18},
-      {key:'idade_media',label:'Idade Média',totalAulas:18},
-      {key:'idade_moderna',label:'Idade Moderna',totalAulas:29},
-      {key:'idade_contemp',label:'Idade Contemporânea',totalAulas:43},
-    ]},
-    {key:'hist_brasil',label:'História do Brasil',assuntos:[
-      {key:'pre_colonial',label:'Pré-Colonial',totalAulas:7},
-      {key:'colonial',label:'Colonial',totalAulas:27},
-      {key:'imperio',label:'Império',totalAulas:17},
-      {key:'republica',label:'República',totalAulas:42},
-    ]},
-    {key:'hist_arte',label:'História da Arte',assuntos:[
-      {key:'hist_arte',label:'História da Arte',totalAulas:33},
-    ]},
-    {key:'geografia',label:'Geografia',assuntos:[
-      {key:'astro_carto',label:'Astronomia e Cartografia',totalAulas:14},
-      {key:'atmosfera',label:'Atmosfera',totalAulas:12},
-      {key:'geologia',label:'Geologia',totalAulas:14},
-      {key:'hidrosfera',label:'Hidrosfera',totalAulas:7},
-      {key:'biosfera',label:'Biosfera',totalAulas:8},
-      {key:'meio_amb',label:'Meio Ambiente',totalAulas:11},
-      {key:'demografia',label:'Demografia',totalAulas:21},
-      {key:'urbanizacao',label:'Urbanização',totalAulas:9},
-      {key:'geo_agraria',label:'Geografia Agrária',totalAulas:12},
-      {key:'energia',label:'Fontes de Energia',totalAulas:11},
-      {key:'industria',label:'Indústria',totalAulas:8},
-      {key:'transportes',label:'Transportes',totalAulas:5},
-      {key:'capitalismo',label:'Fases do Capitalismo',totalAulas:4},
-      {key:'geopolitica',label:'Geopolítica',totalAulas:9},
-      {key:'globalizacao',label:'Globalização',totalAulas:7},
-      {key:'regional_br',label:'Regionalização do Brasil',totalAulas:4},
-      {key:'america',label:'América',totalAulas:12},
-      {key:'europa',label:'Europa',totalAulas:8},
-      {key:'russia_cei',label:'Rússia e CEI',totalAulas:6},
-      {key:'africa',label:'África',totalAulas:6},
-      {key:'japao_india',label:'Japão, Índia e Tigres Asiáticos',totalAulas:4},
-      {key:'china',label:'China',totalAulas:5},
-      {key:'oriente_medio',label:'Oriente Médio',totalAulas:8},
-      {key:'oceania',label:'Oceania e Regiões Polares',totalAulas:2},
-    ]},
-    {key:'filosofia',label:'Filosofia',assuntos:[
-      {key:'fil_antiga',label:'Antiga',totalAulas:18},
-      {key:'fil_medieval',label:'Medieval',totalAulas:6},
-      {key:'fil_moderna',label:'Moderna',totalAulas:39},
-      {key:'fil_contemp',label:'Contemporânea',totalAulas:26},
-    ]},
-    {key:'sociologia',label:'Sociologia',assuntos:[
-      {key:'soc_teoria',label:'Teoria',totalAulas:5},
-      {key:'soc_brasil',label:'Sociologia do Brasil',totalAulas:6},
-      {key:'soc_tematica',label:'Temática',totalAulas:13},
-      {key:'soc_trabalho',label:'Trabalho e Produção',totalAulas:5},
-      {key:'soc_poder',label:'Poder, Estado e Cidadania',totalAulas:6},
-      {key:'soc_contemp',label:'Temas Contemporâneos',totalAulas:6},
-      {key:'soc_outras',label:'Outras Ciências Sociais',totalAulas:4},
-    ]},
-  ]},
-  {key:'ling',label:'Linguagens, Códigos e suas Tecnologias',color:'#a78bfa',materias:[
-    {key:'gramatica',label:'Gramática',assuntos:[
-      {key:'gram_ortografia1',label:'Ortografia',totalAulas:10},
-      {key:'gram_formacao',label:'Formação das Palavras',totalAulas:7},
-      {key:'gram_classes_nome',label:'Classes do Nome',totalAulas:6},
-      {key:'gram_pronome',label:'Classes do Nome - Pronome',totalAulas:9},
-      {key:'gram_verbo',label:'Classes do Verbo',totalAulas:13},
-      {key:'gram_classes_rel',label:'Classes Relacionais',totalAulas:9},
-      {key:'gram_colocacao',label:'Colocação Pronominal',totalAulas:3},
-      {key:'gram_regencia',label:'Regência e Crase',totalAulas:11},
-      {key:'gram_essenciais',label:'Termos Essenciais',totalAulas:3},
-      {key:'gram_integrantes',label:'Termos Integrantes',totalAulas:7},
-      {key:'gram_acessorios',label:'Termos Acessórios',totalAulas:4},
-      {key:'gram_concordancia',label:'Concordância',totalAulas:9},
-      {key:'gram_periodo',label:'Período Composto',totalAulas:12},
-      {key:'gram_pontuacao1',label:'Pontuação',totalAulas:9},
-      {key:'gram_que_se',label:'Funções do Que e do Se',totalAulas:7},
-      {key:'gram_coesao',label:'Coesão e Paralelismo',totalAulas:4},
-      {key:'gram_estilistica',label:'Estilística',totalAulas:3},
-      {key:'gram_redacao',label:'Gramática na Redação',totalAulas:8},
-      {key:'gram_fonetica',label:'Fonética e Fonologia',totalAulas:6},
-      {key:'gram_acentuacao',label:'Acentuação',totalAulas:4},
-      {key:'gram_ortografia2',label:'Ortografia',totalAulas:12},
-      {key:'gram_morfologia',label:'Morfologia',totalAulas:7},
-      {key:'gram_classes_gram',label:'Classes Gramaticais',totalAulas:12},
-      {key:'gram_substantivo',label:'Substantivo',totalAulas:19},
-      {key:'gram_adjetivo',label:'Adjetivo',totalAulas:10},
-      {key:'gram_adverbio',label:'Advérbio',totalAulas:5},
-      {key:'gram_pronome2',label:'Pronome',totalAulas:15},
-      {key:'gram_numeral',label:'Numeral, Artigo e Interjeição',totalAulas:6},
-      {key:'gram_preposicao',label:'Preposição',totalAulas:7},
-      {key:'gram_conjuncao',label:'Conjunção',totalAulas:5},
-      {key:'gram_verbo2',label:'Verbo',totalAulas:23},
-      {key:'gram_sujeito',label:'Sujeito',totalAulas:8},
-      {key:'gram_predicado',label:'Predicado',totalAulas:9},
-      {key:'gram_sintaxe1',label:'Termos da Sintaxe 1',totalAulas:8},
-      {key:'gram_sintaxe2',label:'Termos da Sintaxe 2',totalAulas:5},
-      {key:'gram_coord',label:'Orações Coordenadas',totalAulas:8},
-      {key:'gram_subst',label:'Orações Subordinadas Substantivas',totalAulas:8},
-      {key:'gram_adj',label:'Orações Subordinadas Adjetivas',totalAulas:4},
-      {key:'gram_adv',label:'Orações Subordinadas Adverbiais',totalAulas:11},
-      {key:'gram_reduzidas',label:'Orações Reduzidas',totalAulas:9},
-      {key:'gram_que_se2',label:'Funções do "Que" e do "Se"',totalAulas:19},
-      {key:'gram_regencia2',label:'Regência Verbal e Nominal',totalAulas:19},
-      {key:'gram_crase',label:'Crase',totalAulas:11},
-      {key:'gram_conc_verb',label:'Concordância Verbal',totalAulas:9},
-      {key:'gram_conc_nom',label:'Concordância Nominal',totalAulas:10},
-      {key:'gram_pontuacao2',label:'Pontuação',totalAulas:13},
-      {key:'gram_denotacao',label:'Denotação e Conotação',totalAulas:7},
-      {key:'gram_semantica',label:'Semântica',totalAulas:8},
-      {key:'gram_funcoes_ling',label:'Funções da Linguagem',totalAulas:8},
-      {key:'gram_variacao',label:'Variação Linguística',totalAulas:6},
-      {key:'gram_figuras',label:'Figuras de Linguagem',totalAulas:32},
-    ]},
-    {key:'interpretacao',label:'Interpretação de Texto',assuntos:[
-      {key:'int_comunicacao',label:'Teoria da Comunicação',totalAulas:15},
-      {key:'int_verbal',label:'Linguagem Verbal e Linguagem Não Verbal',totalAulas:8},
-      {key:'int_tipos',label:'Tipos e Gêneros Textuais',totalAulas:13},
-      {key:'int_figuras',label:'Estilística: Figuras de Linguagem',totalAulas:14},
-      {key:'int_poetico',label:'Texto Poético, Intertextualidade e Interdiscursividade',totalAulas:7},
-      {key:'int_coesao',label:'Coesão e Coerência Textuais',totalAulas:7},
-      {key:'int_lingua',label:'Língua e Patrimônio',totalAulas:6},
-      {key:'int_enem',label:'Como Resolver Questões ENEM',totalAulas:7},
-      {key:'int_intro',label:'Introdução à Interpretação Textual',totalAulas:8},
-      {key:'int_tipologia',label:'Tipologia Textual',totalAulas:6},
-      {key:'int_genero',label:'Gênero Textual',totalAulas:6},
-      {key:'int_tematico',label:'Texto Temático x Texto Figurativo',totalAulas:5},
-      {key:'int_intertex',label:'Intertextualidade',totalAulas:4},
-      {key:'int_elementos',label:'Elementos Textuais',totalAulas:7},
-      {key:'int_coesao2',label:'Coesão x Coerência',totalAulas:7},
-      {key:'int_exercicios',label:'Exercícios de Interpretação',totalAulas:20},
-    ]},
-    {key:'literatura',label:'Literatura',assuntos:[
-      {key:'lit_intro',label:'Introdução à Literatura',totalAulas:5},
-      {key:'lit_narrativos',label:'Gêneros Narrativos',totalAulas:5},
-      {key:'lit_elementos',label:'Elementos da Narrativa',totalAulas:3},
-      {key:'lit_conceito',label:'Conceito de Escola Literária',totalAulas:3},
-      {key:'lit_quinh',label:'Quinhentismo',totalAulas:3},
-      {key:'lit_barroco',label:'Barroco',totalAulas:4},
-      {key:'lit_arcadismo',label:'Arcadismo',totalAulas:4},
-      {key:'lit_romantismo',label:'Romantismo',totalAulas:7},
-      {key:'lit_realismo',label:'Realismo',totalAulas:10},
-      {key:'lit_simbolismo',label:'Simbolismo',totalAulas:4},
-      {key:'lit_premod',label:'Pré-Modernismo',totalAulas:5},
-      {key:'lit_vanguardas',label:'Vanguardas Europeias',totalAulas:4},
-      {key:'lit_mod1',label:'Modernismo - Primeira Fase',totalAulas:6},
-      {key:'lit_mod2_poesia',label:'Modernismo - Segunda Fase - Poesia',totalAulas:6},
-      {key:'lit_mod2_prosa',label:'Modernismo - Segunda Fase - Prosa',totalAulas:7},
-      {key:'lit_mod3',label:'Modernismo - Terceira Fase',totalAulas:5},
-      {key:'lit_contemp',label:'Contemporaneidade',totalAulas:6},
-      {key:'lit_prosa_cont',label:'Prosa Contemporânea',totalAulas:3},
-      {key:'lit_hoje',label:'Hoje em Dia',totalAulas:3},
-      {key:'lit_portuguesa',label:'Literatura Portuguesa',totalAulas:8},
-    ]},
-    {key:'atualidades',label:'Atualidades',assuntos:[
-      {key:'atu_2026',label:'Atualidades 2026',totalAulas:36},
-      {key:'atu_2025',label:'Atualidades 2025',totalAulas:79},
-    ]},
-    {key:'ingles',label:'Inglês',assuntos:[
-      {key:'ingles_curso',label:'Curso de Inglês',totalAulas:25},
-    ]},
-  ]},
+  {
+    "key": "modulo_gerais",
+    "label": "Módulo I — Conhecimentos Gerais",
+    "color": "#38bdf8",
+    "materias": [
+      {
+        "key": "portugues",
+        "label": "Língua Portuguesa",
+        "assuntos": [
+          {
+            "key": "portugues_compreensao_e_interpretacao_de_textos_de_g_1",
+            "label": "Compreensão e interpretação de textos de gêneros variados",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_reconhecimento_de_tipos_e_generos_textuais_2",
+            "label": "Reconhecimento de tipos e gêneros textuais",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_ortografia_oficial_3",
+            "label": "Ortografia oficial",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_mecanismos_de_coesao_textual_4",
+            "label": "Mecanismos de coesão textual",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_referenciacao_substituicao_e_repeticao_5",
+            "label": "Referenciação, substituição e repetição",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_conectores_e_sequenciacao_textual_6",
+            "label": "Conectores e sequenciação textual",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_tempos_e_modos_verbais_7",
+            "label": "Tempos e modos verbais",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_estrutura_morfossintatica_do_periodo_8",
+            "label": "Estrutura morfossintática do período",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_classes_de_palavras_9",
+            "label": "Classes de palavras",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_coordenacao_entre_oracoes_e_termos_da_orac_10",
+            "label": "Coordenação entre orações e termos da oração",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_subordinacao_entre_oracoes_e_termos_da_ora_11",
+            "label": "Subordinação entre orações e termos da oração",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_pontuacao_12",
+            "label": "Pontuação",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_concordancia_verbal_13",
+            "label": "Concordância verbal",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_concordancia_nominal_14",
+            "label": "Concordância nominal",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_regencia_verbal_15",
+            "label": "Regência verbal",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_regencia_nominal_16",
+            "label": "Regência nominal",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_crase_17",
+            "label": "Crase",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_colocacao_dos_pronomes_atonos_18",
+            "label": "Colocação dos pronomes átonos",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_reescrita_de_frases_e_paragrafos_19",
+            "label": "Reescrita de frases e parágrafos",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_significacao_das_palavras_20",
+            "label": "Significação das palavras",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_substituicao_de_palavras_e_trechos_21",
+            "label": "Substituição de palavras e trechos",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_reorganizacao_de_oracoes_e_periodos_22",
+            "label": "Reorganização de orações e períodos",
+            "totalAulas": 1
+          },
+          {
+            "key": "portugues_reescrita_de_textos_em_diferentes_generos__23",
+            "label": "Reescrita de textos em diferentes gêneros e níveis de formalidade",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "ingles",
+        "label": "Língua Inglesa",
+        "assuntos": [
+          {
+            "key": "ingles_compreensao_de_textos_em_lingua_inglesa_1",
+            "label": "Compreensão de textos em língua inglesa",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_gramatica_relevante_para_entendimento_dos__2",
+            "label": "Gramática relevante para entendimento dos textos",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_vocabulario_contextual_3",
+            "label": "Vocabulário contextual",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_inferencia_de_sentido_4",
+            "label": "Inferência de sentido",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_referencia_pronominal_5",
+            "label": "Referência pronominal",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_conectores_em_ingles_6",
+            "label": "Conectores em inglês",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_estrategias_de_leitura_7",
+            "label": "Estratégias de leitura",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_identificacao_de_ideia_principal_8",
+            "label": "Identificação de ideia principal",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_identificacao_de_informacoes_especificas_9",
+            "label": "Identificação de informações específicas",
+            "totalAulas": 1
+          },
+          {
+            "key": "ingles_interpretacao_de_texto_tecnico_em_tecnolog_10",
+            "label": "Interpretação de texto técnico em tecnologia",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "rlm",
+        "label": "Raciocínio Lógico-Matemático",
+        "assuntos": [
+          {
+            "key": "rlm_estruturas_logicas_1",
+            "label": "Estruturas lógicas",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_logica_de_argumentacao_2",
+            "label": "Lógica de argumentação",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_analogias_3",
+            "label": "Analogias",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_inferencias_4",
+            "label": "Inferências",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_deducoes_5",
+            "label": "Deduções",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_conclusoes_6",
+            "label": "Conclusões",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_logica_sentencial_ou_proposicional_7",
+            "label": "Lógica sentencial ou proposicional",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_proposicoes_simples_8",
+            "label": "Proposições simples",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_proposicoes_compostas_9",
+            "label": "Proposições compostas",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_conectivos_logicos_10",
+            "label": "Conectivos lógicos",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_tabelas_verdade_11",
+            "label": "Tabelas-verdade",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_equivalencias_logicas_12",
+            "label": "Equivalências lógicas",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_negacao_de_proposicoes_13",
+            "label": "Negação de proposições",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_diagramas_logicos_14",
+            "label": "Diagramas lógicos",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_logica_de_primeira_ordem_15",
+            "label": "Lógica de primeira ordem",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_argumentos_validos_16",
+            "label": "Argumentos válidos",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_problemas_aritmeticos_17",
+            "label": "Problemas aritméticos",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_problemas_geometricos_18",
+            "label": "Problemas geométricos",
+            "totalAulas": 1
+          },
+          {
+            "key": "rlm_problemas_matriciais_19",
+            "label": "Problemas matriciais",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "atualidades_ia",
+        "label": "Atualidades e Inteligência Artificial",
+        "assuntos": [
+          {
+            "key": "atualidades_ia_atualidades_em_seguranca_1",
+            "label": "Atualidades em segurança",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_transportes_2",
+            "label": "Atualidades em transportes",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_politica_3",
+            "label": "Atualidades em política",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_economia_4",
+            "label": "Atualidades em economia",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_sociedade_5",
+            "label": "Atualidades em sociedade",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_educacao_6",
+            "label": "Atualidades em educação",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_saude_7",
+            "label": "Atualidades em saúde",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_cultura_8",
+            "label": "Atualidades em cultura",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_tecnologia_9",
+            "label": "Atualidades em tecnologia",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_atualidades_em_energia_10",
+            "label": "Atualidades em energia",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_relacoes_internacionais_11",
+            "label": "Relações internacionais",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_desenvolvimento_sustentavel_12",
+            "label": "Desenvolvimento sustentável",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_ecologia_13",
+            "label": "Ecologia",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_fundamentos_de_inteligencia_artificial_14",
+            "label": "Fundamentos de inteligência artificial",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_aplicacoes_de_inteligencia_artificial_15",
+            "label": "Aplicações de inteligência artificial",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_conceitos_de_inteligencia_artificial_16",
+            "label": "Conceitos de inteligência artificial",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_aprendizado_de_maquina_17",
+            "label": "Aprendizado de máquina",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_modelos_generativos_18",
+            "label": "Modelos generativos",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_modelos_de_linguagem_19",
+            "label": "Modelos de linguagem",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_ia_generativa_20",
+            "label": "IA generativa",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_etica_em_inteligencia_artificial_21",
+            "label": "Ética em inteligência artificial",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_governanca_de_ia_22",
+            "label": "Governança de IA",
+            "totalAulas": 1
+          },
+          {
+            "key": "atualidades_ia_privacidade_em_ia_23",
+            "label": "Privacidade em IA",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "legislacao_si_pd",
+        "label": "Legislação acerca de Segurança da Informação e Proteção de Dados",
+        "assuntos": [
+          {
+            "key": "legislacao_si_pd_lei_n_12_527_2011_lei_de_acesso_a_informac_1",
+            "label": "Lei nº 12.527/2011 — Lei de Acesso à Informação",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lai_capitulo_i_2",
+            "label": "LAI — Capítulo I",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lai_capitulo_ii_3",
+            "label": "LAI — Capítulo II",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lai_capitulo_iii_4",
+            "label": "LAI — Capítulo III",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lai_capitulo_iv_5",
+            "label": "LAI — Capítulo IV",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lai_capitulo_v_6",
+            "label": "LAI — Capítulo V",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_decreto_n_7_724_2012_7",
+            "label": "Decreto nº 7.724/2012",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_decreto_n_7_845_2012_8",
+            "label": "Decreto nº 7.845/2012",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lei_n_12_737_2012_lei_de_delitos_informati_9",
+            "label": "Lei nº 12.737/2012 — Lei de Delitos Informáticos",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lei_de_delitos_informaticos_art_2_10",
+            "label": "Lei de Delitos Informáticos — art. 2º",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lei_n_12_965_2014_marco_civil_da_internet_11",
+            "label": "Lei nº 12.965/2014 — Marco Civil da Internet",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_marco_civil_capitulo_ii_secao_i_12",
+            "label": "Marco Civil — Capítulo II, Seção I",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_marco_civil_capitulo_iii_secoes_i_e_ii_13",
+            "label": "Marco Civil — Capítulo III, Seções I e II",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lei_n_13_709_2018_lgpd_14",
+            "label": "Lei nº 13.709/2018 — LGPD",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_i_15",
+            "label": "LGPD — Capítulo I",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_ii_16",
+            "label": "LGPD — Capítulo II",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_iii_17",
+            "label": "LGPD — Capítulo III",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_iv_18",
+            "label": "LGPD — Capítulo IV",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_vii_19",
+            "label": "LGPD — Capítulo VII",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_viii_20",
+            "label": "LGPD — Capítulo VIII",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_lgpd_capitulo_ix_21",
+            "label": "LGPD — Capítulo IX",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_principios_da_lgpd_22",
+            "label": "Princípios da LGPD",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_bases_legais_23",
+            "label": "Bases legais",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_direitos_do_titular_24",
+            "label": "Direitos do titular",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_tratamento_de_dados_pessoais_25",
+            "label": "Tratamento de dados pessoais",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_tratamento_de_dados_sensiveis_26",
+            "label": "Tratamento de dados sensíveis",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_agentes_de_tratamento_27",
+            "label": "Agentes de tratamento",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_seguranca_e_boas_praticas_28",
+            "label": "Segurança e boas práticas",
+            "totalAulas": 1
+          },
+          {
+            "key": "legislacao_si_pd_fiscalizacao_e_sancoes_29",
+            "label": "Fiscalização e sanções",
+            "totalAulas": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "modulo_especificos",
+    "label": "Módulo II — Conhecimentos Específicos",
+    "color": "#4ade80",
+    "materias": [
+      {
+        "key": "desenvolvimento_sistemas",
+        "label": "Desenvolvimento de Sistemas",
+        "assuntos": [
+          {
+            "key": "desenvolvimento_sistemas_desenvolvimento_de_sistemas_1",
+            "label": "Desenvolvimento de sistemas",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_java_versao_6_ou_superior_2",
+            "label": "Java versão 6 ou superior",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_javaee_versao_6_ou_superior_3",
+            "label": "JavaEE versão 6 ou superior",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_jakartaee_4",
+            "label": "JakartaEE",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_jpa_versao_2_ou_superior_5",
+            "label": "JPA versão 2 ou superior",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_javascript_6",
+            "label": "JavaScript",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_junit_7",
+            "label": "JUnit",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_hibernate_8",
+            "label": "Hibernate",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_jsf_9",
+            "label": "JSF",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_primefaces_10",
+            "label": "Primefaces",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_spring_11",
+            "label": "Spring",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_spring_cloud_12",
+            "label": "Spring Cloud",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_spring_boot_13",
+            "label": "Spring Boot",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_desenvolvimento_android_14",
+            "label": "Desenvolvimento Android",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_desenvolvimento_ios_15",
+            "label": "Desenvolvimento iOS",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_desenvolvimento_low_code_16",
+            "label": "Desenvolvimento low-code",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_desenvolvimento_no_code_17",
+            "label": "Desenvolvimento no-code",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_analise_estatica_de_codigo_fonte_18",
+            "label": "Análise estática de código-fonte",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_clean_code_19",
+            "label": "Clean Code",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_sonarqube_20",
+            "label": "SonarQube",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_codificacao_de_software_transacional_21",
+            "label": "Codificação de software transacional",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_codificacao_de_software_analitico_22",
+            "label": "Codificação de software analítico",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_codificacao_de_software_mobile_23",
+            "label": "Codificação de software mobile",
+            "totalAulas": 1
+          },
+          {
+            "key": "desenvolvimento_sistemas_codificacao_de_apis_24",
+            "label": "Codificação de APIs",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "arquitetura_integracao",
+        "label": "Arquitetura de Software e Integração",
+        "assuntos": [
+          {
+            "key": "arquitetura_integracao_arquitetura_de_software_1",
+            "label": "Arquitetura de software",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_interoperabilidade_de_sistemas_2",
+            "label": "Interoperabilidade de sistemas",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_arquitetura_orientada_a_servicos_3",
+            "label": "Arquitetura orientada a serviços",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_linguagem_orientada_a_servicos_4",
+            "label": "Linguagem orientada a serviços",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_web_services_5",
+            "label": "Web services",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_mensageria_6",
+            "label": "Mensageria",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_apis_7",
+            "label": "APIs",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_swagger_8",
+            "label": "Swagger",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_arquitetura_orientada_a_objetos_9",
+            "label": "Arquitetura orientada a objetos",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_linguagem_orientada_a_objetos_10",
+            "label": "Linguagem orientada a objetos",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_arquitetura_de_aplicacoes_web_11",
+            "label": "Arquitetura de aplicações web",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_servidor_de_aplicacoes_12",
+            "label": "Servidor de aplicações",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_servidor_web_13",
+            "label": "Servidor web",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_internet_14",
+            "label": "Internet",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_extranet_15",
+            "label": "Extranet",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_intranet_16",
+            "label": "Intranet",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_portais_17",
+            "label": "Portais",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_padroes_xml_18",
+            "label": "Padrões XML",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_xslt_19",
+            "label": "XSLT",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_uddi_20",
+            "label": "UDDI",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_rest_21",
+            "label": "REST",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_json_22",
+            "label": "JSON",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_https_23",
+            "label": "HTTPS",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_ssl_tls_24",
+            "label": "SSL/TLS",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_blockchain_25",
+            "label": "Blockchain",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_design_de_software_26",
+            "label": "Design de software",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_arquitetura_hexagonal_27",
+            "label": "Arquitetura hexagonal",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_microsservicos_28",
+            "label": "Microsserviços",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_orquestracao_de_servicos_29",
+            "label": "Orquestração de serviços",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_api_gateway_30",
+            "label": "API Gateway",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_containers_31",
+            "label": "Containers",
+            "totalAulas": 1
+          },
+          {
+            "key": "arquitetura_integracao_transacoes_distribuidas_32",
+            "label": "Transações distribuídas",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "testes_software",
+        "label": "Testes de Software",
+        "assuntos": [
+          {
+            "key": "testes_software_conceitos_basicos_de_testes_de_aplicacoes_1",
+            "label": "Conceitos básicos de testes de aplicações",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_unitarios_2",
+            "label": "Testes unitários",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_de_integracao_3",
+            "label": "Testes de integração",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_ageis_4",
+            "label": "Testes ágeis",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_teste_de_usabilidade_de_software_5",
+            "label": "Teste de usabilidade de software",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_automatizados_6",
+            "label": "Testes automatizados",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_tipos_de_testes_7",
+            "label": "Tipos de testes",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_test_driven_development_8",
+            "label": "Test-driven development",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_tdd_9",
+            "label": "TDD",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_gestao_do_ciclo_de_vida_de_testes_10",
+            "label": "Gestão do ciclo de vida de testes",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_rpa_robotic_process_automation_11",
+            "label": "RPA — robotic process automation",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_criterios_de_aceite_12",
+            "label": "Critérios de aceite",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_massa_de_testes_13",
+            "label": "Massa de testes",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_cobertura_de_testes_14",
+            "label": "Cobertura de testes",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_estrategia_de_testes_15",
+            "label": "Estratégia de testes",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_em_apis_16",
+            "label": "Testes em APIs",
+            "totalAulas": 1
+          },
+          {
+            "key": "testes_software_testes_em_aplicacoes_web_17",
+            "label": "Testes em aplicações web",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "metodologias_metricas",
+        "label": "Metodologias Ágeis, Reuso e Métricas",
+        "assuntos": [
+          {
+            "key": "metodologias_metricas_metodologias_ageis_de_desenvolvimento_1",
+            "label": "Metodologias ágeis de desenvolvimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_scrum_2",
+            "label": "Scrum",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_papeis_do_scrum_3",
+            "label": "Papéis do Scrum",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_eventos_do_scrum_4",
+            "label": "Eventos do Scrum",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_artefatos_do_scrum_5",
+            "label": "Artefatos do Scrum",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_kanban_6",
+            "label": "Kanban",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_xp_7",
+            "label": "XP",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_padroes_de_desenvolvimento_8",
+            "label": "Padrões de desenvolvimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_reuso_de_software_9",
+            "label": "Reuso de software",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_metodologia_de_ponto_de_funcao_10",
+            "label": "Metodologia de Ponto de Função",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_story_points_11",
+            "label": "Story Points",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_backlog_12",
+            "label": "Backlog",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_sprint_13",
+            "label": "Sprint",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_product_owner_14",
+            "label": "Product Owner",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_scrum_master_15",
+            "label": "Scrum Master",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_time_de_desenvolvimento_16",
+            "label": "Time de desenvolvimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_incremento_17",
+            "label": "Incremento",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_definition_of_done_18",
+            "label": "Definition of Done",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_fluxo_puxado_19",
+            "label": "Fluxo puxado",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_wip_20",
+            "label": "WIP",
+            "totalAulas": 1
+          },
+          {
+            "key": "metodologias_metricas_entrega_incremental_21",
+            "label": "Entrega incremental",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "engenharia_requisitos",
+        "label": "Engenharia de Requisitos",
+        "assuntos": [
+          {
+            "key": "engenharia_requisitos_engenharia_de_requisitos_1",
+            "label": "Engenharia de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_classificacao_de_requisitos_2",
+            "label": "Classificação de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_processo_de_engenharia_de_requisitos_3",
+            "label": "Processo de engenharia de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_tecnicas_de_elicitacao_de_requisitos_4",
+            "label": "Técnicas de elicitação de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_requisitos_funcionais_5",
+            "label": "Requisitos funcionais",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_requisitos_nao_funcionais_6",
+            "label": "Requisitos não funcionais",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_regras_de_negocio_7",
+            "label": "Regras de negócio",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_analise_de_requisitos_8",
+            "label": "Análise de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_especificacao_de_requisitos_9",
+            "label": "Especificação de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_validacao_de_requisitos_10",
+            "label": "Validação de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_gerenciamento_de_requisitos_11",
+            "label": "Gerenciamento de requisitos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_rastreabilidade_12",
+            "label": "Rastreabilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_casos_de_uso_13",
+            "label": "Casos de uso",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_historias_de_usuario_14",
+            "label": "Histórias de usuário",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_prototipos_15",
+            "label": "Protótipos",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_criterios_de_aceite_16",
+            "label": "Critérios de aceite",
+            "totalAulas": 1
+          },
+          {
+            "key": "engenharia_requisitos_priorizacao_de_requisitos_17",
+            "label": "Priorização de requisitos",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "frontend_ux_portais",
+        "label": "Frontend, UX, Acessibilidade e Portais",
+        "assuntos": [
+          {
+            "key": "frontend_ux_portais_html_1",
+            "label": "HTML",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_css_2",
+            "label": "CSS",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_ux_3",
+            "label": "UX",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_ajax_4",
+            "label": "Ajax",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_vuejs_5",
+            "label": "VueJS",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_angular_6",
+            "label": "Angular",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_react_7",
+            "label": "React",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_padroes_de_frontend_8",
+            "label": "Padrões de frontend",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_spa_9",
+            "label": "SPA",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_pwa_10",
+            "label": "PWA",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_user_experience_11",
+            "label": "User Experience",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_sistemas_de_gestao_de_conteudo_12",
+            "label": "Sistemas de gestão de conteúdo",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_conceitos_basicos_de_cms_13",
+            "label": "Conceitos básicos de CMS",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_aplicacoes_de_cms_14",
+            "label": "Aplicações de CMS",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_arquitetura_de_informacao_15",
+            "label": "Arquitetura de informação",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_portais_corporativos_16",
+            "label": "Portais corporativos",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_workflow_17",
+            "label": "Workflow",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_acessibilidade_18",
+            "label": "Acessibilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_usabilidade_19",
+            "label": "Usabilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_desenho_de_interacao_em_aplicacoes_web_20",
+            "label": "Desenho de interação em aplicações web",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_planejamento_de_interacao_em_aplicacoes_we_21",
+            "label": "Planejamento de interação em aplicações web",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_interface_de_usuario_22",
+            "label": "Interface de usuário",
+            "totalAulas": 1
+          },
+          {
+            "key": "frontend_ux_portais_design_responsivo_23",
+            "label": "Design responsivo",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "devops_git_config",
+        "label": "DevOps, Git e Configuração",
+        "assuntos": [
+          {
+            "key": "devops_git_config_devops_1",
+            "label": "DevOps",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_git_2",
+            "label": "Git",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_gestao_da_configuracao_3",
+            "label": "Gestão da configuração",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_controle_de_versao_4",
+            "label": "Controle de versão",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_branches_5",
+            "label": "Branches",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_merge_6",
+            "label": "Merge",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_pull_request_7",
+            "label": "Pull request",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_versionamento_de_software_8",
+            "label": "Versionamento de software",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_integracao_continua_9",
+            "label": "Integração contínua",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_entrega_continua_10",
+            "label": "Entrega contínua",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_build_11",
+            "label": "Build",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_deploy_12",
+            "label": "Deploy",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_pipeline_13",
+            "label": "Pipeline",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_ambientes_de_desenvolvimento_14",
+            "label": "Ambientes de desenvolvimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_ambiente_de_homologacao_15",
+            "label": "Ambiente de homologação",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_ambiente_de_producao_16",
+            "label": "Ambiente de produção",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_gestao_de_mudancas_17",
+            "label": "Gestão de mudanças",
+            "totalAulas": 1
+          },
+          {
+            "key": "devops_git_config_gestao_de_configuracao_aplicada_a_software_18",
+            "label": "Gestão de configuração aplicada a software",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "seguranca_informacao",
+        "label": "Segurança da Informação",
+        "assuntos": [
+          {
+            "key": "seguranca_informacao_politicas_de_seguranca_da_informacao_1",
+            "label": "Políticas de segurança da informação",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_procedimentos_de_seguranca_2",
+            "label": "Procedimentos de segurança",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_conceitos_gerais_de_gerenciamento_de_segur_3",
+            "label": "Conceitos gerais de gerenciamento de segurança",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_abnt_nbr_iso_iec_27001_2022_4",
+            "label": "ABNT NBR ISO/IEC 27001:2022",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_abnt_nbr_iso_iec_27002_2022_5",
+            "label": "ABNT NBR ISO/IEC 27002:2022",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_confiabilidade_6",
+            "label": "Confiabilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_integridade_7",
+            "label": "Integridade",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_disponibilidade_8",
+            "label": "Disponibilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_mecanismos_de_seguranca_9",
+            "label": "Mecanismos de segurança",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_controle_de_acesso_10",
+            "label": "Controle de acesso",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_oauth2_11",
+            "label": "OAuth2",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_sso_single_sign_on_12",
+            "label": "SSO — Single Sign-On",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_gerencia_de_riscos_13",
+            "label": "Gerência de riscos",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_ameaca_14",
+            "label": "Ameaça",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_vulnerabilidade_15",
+            "label": "Vulnerabilidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_impacto_16",
+            "label": "Impacto",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_sdl_security_development_lifecycle_17",
+            "label": "SDL — Security Development Lifecycle",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_owasp_top_10_18",
+            "label": "OWASP Top 10",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_analise_estatica_de_codigo_19",
+            "label": "Análise estática de código",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_sast_20",
+            "label": "SAST",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_analise_dinamica_de_codigo_21",
+            "label": "Análise dinâmica de código",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_dast_22",
+            "label": "DAST",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_seguranca_em_apis_23",
+            "label": "Segurança em APIs",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_seguranca_em_aplicacoes_web_24",
+            "label": "Segurança em aplicações web",
+            "totalAulas": 1
+          },
+          {
+            "key": "seguranca_informacao_vulnerabilidades_comuns_em_sistemas_web_25",
+            "label": "Vulnerabilidades comuns em sistemas web",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "banco_dados",
+        "label": "Banco de Dados",
+        "assuntos": [
+          {
+            "key": "banco_dados_modelagem_de_dados_conceitual_1",
+            "label": "Modelagem de dados conceitual",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_modelagem_de_dados_logica_2",
+            "label": "Modelagem de dados lógica",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_modelagem_de_dados_fisica_3",
+            "label": "Modelagem de dados física",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_abordagem_relacional_4",
+            "label": "Abordagem relacional",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_abordagem_multidimensional_5",
+            "label": "Abordagem multidimensional",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_normalizacao_6",
+            "label": "Normalização",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_integridade_referencial_7",
+            "label": "Integridade referencial",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_metadados_8",
+            "label": "Metadados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_modelagem_dimensional_9",
+            "label": "Modelagem dimensional",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_sql_10",
+            "label": "SQL",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_ddl_11",
+            "label": "DDL",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_dml_12",
+            "label": "DML",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_sgbd_13",
+            "label": "SGBD",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_propriedades_de_banco_de_dados_14",
+            "label": "Propriedades de banco de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_banco_de_dados_nosql_15",
+            "label": "Banco de dados NoSQL",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_banco_de_dados_em_memoria_16",
+            "label": "Banco de dados em memória",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_data_lakes_17",
+            "label": "Data lakes",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_solucoes_para_big_data_18",
+            "label": "Soluções para Big Data",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_dados_estruturados_19",
+            "label": "Dados estruturados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_dados_nao_estruturados_20",
+            "label": "Dados não estruturados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_avaliacao_de_modelos_de_dados_21",
+            "label": "Avaliação de modelos de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_tecnicas_de_integracao_de_dados_22",
+            "label": "Técnicas de integração de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_tecnicas_de_ingestao_de_dados_23",
+            "label": "Técnicas de ingestão de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_etl_24",
+            "label": "ETL",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_elt_25",
+            "label": "ELT",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_transferencia_de_arquivos_26",
+            "label": "Transferência de arquivos",
+            "totalAulas": 1
+          },
+          {
+            "key": "banco_dados_integracao_via_base_de_dados_27",
+            "label": "Integração via base de dados",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "bi_dados_bigdata",
+        "label": "Business Intelligence, Dados e Big Data",
+        "assuntos": [
+          {
+            "key": "bi_dados_bigdata_conceitos_de_business_intelligence_1",
+            "label": "Conceitos de Business Intelligence",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_fundamentos_de_bi_2",
+            "label": "Fundamentos de BI",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_caracteristicas_de_bi_3",
+            "label": "Características de BI",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_tecnicas_de_bi_4",
+            "label": "Técnicas de BI",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_metodos_de_bi_5",
+            "label": "Métodos de BI",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_sistemas_de_suporte_a_decisao_6",
+            "label": "Sistemas de suporte à decisão",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_gestao_de_conteudo_7",
+            "label": "Gestão de conteúdo",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_data_warehouse_8",
+            "label": "Data warehouse",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_etl_em_data_warehouse_9",
+            "label": "ETL em data warehouse",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_olap_10",
+            "label": "OLAP",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_data_mining_11",
+            "label": "Data mining",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_visualizacao_de_dados_12",
+            "label": "Visualização de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_bancos_de_dados_individuais_13",
+            "label": "Bancos de dados individuais",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_cubos_14",
+            "label": "Cubos",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_mapeamento_de_fontes_de_dados_15",
+            "label": "Mapeamento de fontes de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_tecnicas_de_coleta_de_dados_16",
+            "label": "Técnicas de coleta de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_arquitetura_de_business_intelligence_17",
+            "label": "Arquitetura de Business Intelligence",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_analise_de_dados_18",
+            "label": "Análise de dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_big_data_19",
+            "label": "Big Data",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_inteligencia_artificial_aplicada_a_dados_20",
+            "label": "Inteligência artificial aplicada a dados",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_indicadores_21",
+            "label": "Indicadores",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_dashboards_22",
+            "label": "Dashboards",
+            "totalAulas": 1
+          },
+          {
+            "key": "bi_dados_bigdata_relatorios_gerenciais_23",
+            "label": "Relatórios gerenciais",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "gestao_governanca_ti",
+        "label": "Gestão e Governança de TI",
+        "assuntos": [
+          {
+            "key": "gestao_governanca_ti_gerenciamento_de_projetos_1",
+            "label": "Gerenciamento de projetos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_conceitos_de_projetos_2",
+            "label": "Conceitos de projetos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_areas_de_conhecimento_3",
+            "label": "Áreas de conhecimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_programas_4",
+            "label": "Programas",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_portfolio_5",
+            "label": "Portfólio",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_abordagem_tradicional_6",
+            "label": "Abordagem tradicional",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_abordagem_hibrida_7",
+            "label": "Abordagem híbrida",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_abordagem_agil_8",
+            "label": "Abordagem ágil",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_scrum_como_framework_de_gestao_9",
+            "label": "Scrum como framework de gestão",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_lean_10",
+            "label": "Lean",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_kanban_11",
+            "label": "Kanban",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_processos_12",
+            "label": "Processos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_grupos_de_processos_13",
+            "label": "Grupos de processos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_gestao_de_riscos_14",
+            "label": "Gestão de riscos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_gerenciamento_de_servicos_15",
+            "label": "Gerenciamento de serviços",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_itil_v4_16",
+            "label": "ITIL v4",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_conceitos_basicos_de_itil_17",
+            "label": "Conceitos básicos de ITIL",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_disciplinas_de_itil_18",
+            "label": "Disciplinas de ITIL",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_estrutura_e_objetivos_da_itil_19",
+            "label": "Estrutura e objetivos da ITIL",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_governanca_de_ti_20",
+            "label": "Governança de TI",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_cobit_2019_21",
+            "label": "COBIT 2019",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_estrutura_e_objetivos_do_cobit_22",
+            "label": "Estrutura e objetivos do COBIT",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_gestao_de_processos_23",
+            "label": "Gestão de processos",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_modelagem_de_processos_de_negocio_24",
+            "label": "Modelagem de processos de negócio",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_governanca_ti_bpmn_25",
+            "label": "BPMN",
+            "totalAulas": 1
+          }
+        ]
+      }
+    ]
+  }
 ];
 
-const ENEM_DATE = new Date('2026-11-08T09:00:00');
+const ENEM_DATE = new Date('2026-10-11T13:00:00-03:00');
 const AREAS_SIMULADO = [
-  {key:'mat',label:'Matemática e suas Tecnologias'},
-  {key:'nat',label:'Ciências da Natureza e suas Tecnologias'},
-  {key:'hum',label:'Ciências Humanas e suas Tecnologias'},
-  {key:'ling',label:'Linguagens, Códigos e suas Tecnologias'},
+  {
+    "key": "portugues",
+    "label": "Língua Portuguesa",
+    "modulo": "Módulo I",
+    "total": 12,
+    "peso": 1,
+    "maxPontos": 12
+  },
+  {
+    "key": "ingles",
+    "label": "Língua Inglesa",
+    "modulo": "Módulo I",
+    "total": 12,
+    "peso": 1,
+    "maxPontos": 12
+  },
+  {
+    "key": "rlm",
+    "label": "Raciocínio Lógico-Matemático",
+    "modulo": "Módulo I",
+    "total": 5,
+    "peso": 1,
+    "maxPontos": 5
+  },
+  {
+    "key": "atualidades_ia",
+    "label": "Atualidades e Inteligência Artificial",
+    "modulo": "Módulo I",
+    "total": 6,
+    "peso": 1,
+    "maxPontos": 6
+  },
+  {
+    "key": "legislacao_si_pd",
+    "label": "Legislação SI/PD",
+    "modulo": "Módulo I",
+    "total": 5,
+    "peso": 1,
+    "maxPontos": 5
+  },
+  {
+    "key": "especificos",
+    "label": "Conhecimentos Específicos",
+    "modulo": "Módulo II",
+    "total": 30,
+    "peso": 2.5,
+    "maxPontos": 75
+  }
 ];
+const SIMULADO_TOTAL_QUESTOES = 70;
+const SIMULADO_TOTAL_PONTOS = 115;
+const SIMULADO_MINIMO_PONTOS = 57.5;
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  PERSISTÊNCIA
 // ═══════════════════════════════════════════════════════════════════════════
-const DB_KEY = 'enem_tracker_v1';
+const DB_KEY = 'dataprev_tracker_v1';
 
 function loadDB() {
   try {
@@ -1624,30 +3304,60 @@ function setAllAulas(assuntoKey, totalAulas, val) {
   saveDB();
 }
 
-function triEstimadoPorAcertos(acertos) {
-  if (acertos <= 22) return 580;
-  if (acertos <= 25) return 650;
-  if (acertos <= 29) return 700;
-  if (acertos <= 32) return 750;
-  if (acertos <= 35) return 800;
-  if (acertos <= 38) return 850;
-  return 900;
+function formatNota(value) {
+  const n = Number(value || 0);
+  return Number.isInteger(n) ? String(n) : n.toFixed(1).replace('.', ',');
 }
 
-function getSimuladoTriEstimativas(sim) {
-  if (sim.triEstimado && Array.isArray(sim.triEstimado) && sim.triEstimado.length === AREAS_SIMULADO.length) {
-    return sim.triEstimado;
-  }
-  return AREAS_SIMULADO.map(a => {
-    const result = sim.resultados?.find(x=>x.area===a.key) || { acertos: 0 };
-    return { area: a.key, tri: triEstimadoPorAcertos(result.acertos||0) };
+function calculateSimuladoFGV(sim = {}) {
+  const rawResultados = Array.isArray(sim.resultados) ? sim.resultados : [];
+  const resultados = AREAS_SIMULADO.map(area => {
+    const raw = rawResultados.find(r => r.area === area.key) || {};
+    const acertos = Math.max(0, Math.min(area.total, Math.round(safeNumber(raw.acertos))));
+    const pontos = acertos * area.peso;
+    const pctQuestoes = area.total ? Math.round((acertos / area.total) * 100) : 0;
+    return { ...area, acertos, pontos, pctQuestoes };
   });
+  const totalAcertos = resultados.reduce((sum, r) => sum + r.acertos, 0);
+  const notaFinal = resultados.reduce((sum, r) => sum + r.pontos, 0);
+  const pontosGerais = resultados.filter(r => r.modulo === 'Módulo I').reduce((sum, r) => sum + r.pontos, 0);
+  const pontosEspecificos = resultados.filter(r => r.modulo === 'Módulo II').reduce((sum, r) => sum + r.pontos, 0);
+  const aproveitamento = SIMULADO_TOTAL_PONTOS ? Math.round((notaFinal / SIMULADO_TOTAL_PONTOS) * 100) : 0;
+  const zeradas = resultados.filter(r => r.acertos === 0);
+  const zerouDisciplina = zeradas.length > 0;
+  const atingiuMinimo = notaFinal >= SIMULADO_MINIMO_PONTOS;
+  const situacao = zerouDisciplina
+    ? 'Eliminada por zerar disciplina'
+    : atingiuMinimo
+      ? 'Aprovada no critério mínimo'
+      : 'Eliminada por pontuação';
+  let statusColor = 'var(--red)';
+  let faixa = situacao;
+  if (!zerouDisciplina && atingiuMinimo) {
+    if (notaFinal > 95) { statusColor = 'var(--accent)'; faixa = 'Excelente'; }
+    else if (notaFinal > 85) { statusColor = 'var(--green)'; faixa = 'Forte'; }
+    else if (notaFinal < 75) { statusColor = 'var(--amber)'; faixa = 'Mínimo atingido'; }
+    else { statusColor = 'var(--green)'; faixa = 'Competitiva'; }
+  }
+  return {
+    resultados,
+    totalAcertos,
+    totalQuestoes: SIMULADO_TOTAL_QUESTOES,
+    notaFinal,
+    pontosGerais,
+    pontosEspecificos,
+    aproveitamento,
+    zerouDisciplina,
+    zeradas,
+    atingiuMinimo,
+    situacao,
+    faixa,
+    statusColor,
+  };
 }
 
-function getSimuladoTriMedia(sim) {
-  if (typeof sim.triMediaEstimado === 'number') return sim.triMediaEstimado;
-  const estimativas = getSimuladoTriEstimativas(sim);
-  return estimativas.length ? Math.round(estimativas.reduce((sum, item) => sum + item.tri, 0) / estimativas.length) : 0;
+function getSimuladoNotaFinal(sim) {
+  return calculateSimuladoFGV(sim).notaFinal;
 }
 
 function assuntoProgress(assuntoKey, totalAulas) {
@@ -1755,7 +3465,7 @@ function getSessionScope(session = {}) {
     }
   }
 
-  const areaLabel = area?.label || session.area || 'Sem área';
+  const areaLabel = area?.label || session.area || 'Sem módulo';
   const materiaLabel = matInfo.mat?.label || session.materia || 'Sem matéria';
   const assuntoLabel = assInfo.ass?.label || session.assunto || 'Sem assunto';
   return {
@@ -1813,20 +3523,20 @@ function finishPerf(group) {
 
 function performanceStatus(item) {
   if (!item || !item.feitas) return { key:'sem-dados', label:'Sem dados' };
-  if (item.percentual < 60) return { key:'critico', label:'Crítico' };
-  if (item.percentual < 80) return { key:'atencao', label:'Atenção' };
-  return { key:'bom', label:'Bom' };
+  if (item.percentual < 50) return { key:'critico', label:'Crítico' };
+  if (item.percentual < 70) return { key:'atencao', label:'Em construção' };
+  if (item.percentual < 85) return { key:'bom', label:'Bom' };
+  return { key:'bom', label:'Forte' };
 }
 
 function subjectDomainStatus(item) {
   const feitas = safeNumber(item?.feitas);
   const pct = item?.percentual;
   if (!feitas) return { key:'sem-dados', cls:'domain-sem-dados', label:'Sem dados' };
-  if (feitas < 10) return { key:'insuficiente', cls:'domain-insuficiente', label:'Insuficiente' };
-  if (pct < 60) return { key:'critico', cls:'domain-critico', label:'Crítico' };
-  if (pct < 80) return { key:'construcao', cls:'domain-construcao', label:'Em construção' };
-  if (pct >= 80 && feitas >= 20) return { key:'bom', cls:'domain-bom', label:'Bom domínio' };
-  return { key:'construcao', cls:'domain-construcao', label:'Em construção' };
+  if (pct < 50) return { key:'critico', cls:'domain-critico', label:'Crítico' };
+  if (pct < 70) return { key:'construcao', cls:'domain-construcao', label:'Em construção' };
+  if (pct < 85) return { key:'bom', cls:'domain-bom', label:'Bom' };
+  return { key:'forte', cls:'domain-bom', label:'Forte' };
 }
 
 function formatPerfPct(value) {
@@ -1908,9 +3618,9 @@ function showView(v) {
   document.querySelector(`[data-view="${v}"]`)?.classList.add('active');
 
   const titles = {
-    dashboard:'Painel ENEM', conteudo:'Conteúdos Ferretto',
+    dashboard:'Painel Dataprev', conteudo:'Edital Dataprev',
     sessoes:'Sessões de estudo', desempenho:'Desempenho', erros:'Caderno de erros',
-    simulados:'Simulados ENEM', feynman:'Caderno Feynman', config:'Configurações',
+    simulados:'Simulados FGV', feynman:'Caderno Feynman', config:'Configurações',
   };
   document.getElementById('topbar-title').textContent = titles[v]||v;
 
@@ -1959,8 +3669,8 @@ function renderCountdown() {
   document.getElementById('countdown-bar').innerHTML = `
     <div class="countdown-left">
       <span class="countdown-label">Contagem regressiva</span>
-      <span class="countdown-title">ENEM 2026 — 08 de novembro</span>
-      <span class="countdown-sub">Dias 1 e 2 · Ferretto · ${dias} dias restantes</span>
+      <span class="countdown-title">Concurso Dataprev 2026</span>
+      <span class="countdown-sub">FGV · Perfil 3 — Desenvolvimento de Software · Prova objetiva: 11/10/2026 · ${dias} dias restantes</span>
     </div>
     <div class="countdown-units">
       <div class="countdown-unit"><div class="countdown-num">${dias}</div><div class="countdown-unit-label">dias</div></div>
@@ -1977,12 +3687,12 @@ function renderStats() {
   const metaDia = DB.config.meta_dia||120;
   const metaPct = Math.min(100,Math.round(minHoje/metaDia*100));
   const errosPend = DB.erros.filter(e=>e.status==='pendente'||(e.status===undefined&&!e.revisado)).reduce((sum,e)=>sum+errorQuantity(e),0);
-  const avgSimulado = DB.simulados.length ? Math.round(DB.simulados.reduce((sum, sim)=>sum + getSimuladoTriMedia(sim), 0)/DB.simulados.length) : 0;
+  const avgSimulado = DB.simulados.length ? DB.simulados.reduce((sum, sim)=>sum + getSimuladoNotaFinal(sim), 0)/DB.simulados.length : 0;
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat-card ${gp.pct>0?'hi':''}">
       <div class="stat-label">Progresso geral</div>
       <div class="stat-value">${gp.pct}<span style="font-size:11px;color:var(--text3)">%</span></div>
-      <div class="stat-sub">${gp.feitas}/${gp.total} aulas</div>
+      <div class="stat-sub">${gp.feitas}/${gp.total} itens</div>
     </div>
     <div class="stat-card ${metaPct>=100?'hi':''}">
       <div class="stat-label">Hoje</div>
@@ -1995,8 +3705,8 @@ function renderStats() {
       <div class="stat-sub">${DB.sessoes.filter(s=>s.data>=w7).length} sessões</div>
     </div>
     <div class="stat-card ${DB.simulados.length>0?'hi':''}">
-      <div class="stat-label">Simulado médio</div>
-      <div class="stat-value">${DB.simulados.length ? avgSimulado : '—'}</div>
+      <div class="stat-label">Nota média FGV</div>
+      <div class="stat-value">${DB.simulados.length ? formatNota(avgSimulado) : '—'}</div>
       <div class="stat-sub">${DB.simulados.length} simulados</div>
     </div>
     <div class="stat-card ${errosPend>0?'':''}">
@@ -2060,7 +3770,7 @@ function renderAreasGrid() {
         <div class="area-card-pct" style="color:${area.color}">${p.pct}%</div>
       </div>
       <div class="area-bar-bg"><div class="area-bar-fill" style="width:${p.pct}%;background:${area.color}"></div></div>
-      <div class="area-card-sub">${p.feitas}/${p.total} aulas · ${area.materias.length} matérias</div>
+      <div class="area-card-sub">${p.feitas}/${p.total} itens · ${area.materias.length} disciplinas</div>
     </div>`;
   }).join('');
 }
@@ -2107,8 +3817,8 @@ function renderUltimasSessoes() {
   }
   document.getElementById('ultimas-sessoes').innerHTML = sessoes.map(s => {
     const areaObj = ENEM_DATA.find(a=>a.key===s.area);
-    const tipoKey = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'aula';
-    const tipoLabel = {aula:'Aula / Teoria',exercicios:'Exercícios',revisao:'Revisão',simulado:'Simulado',livro:'Livro / Apostila'}[tipoKey]||tipoKey;
+    const tipoKey = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'teoria';
+    const tipoLabel = SESSION_TYPE_LABELS[tipoKey] || tipoKey;
     const q = normalizeSessionQuestions(s);
     const qInfo = q.feitas>0 ? `${q.corretas}/${q.feitas} - ${formatPerfPct(q.percentual)}` : '';
     const details = [s.aulaEspecifica, ...((s.atividadesComplementares && Array.isArray(s.atividadesComplementares)) ? s.atividadesComplementares : [])].filter(Boolean).map(text=>`<div style="font-size:10px;color:var(--text3);margin-top:2px">${esc(text)}</div>`).join('');
@@ -2267,7 +3977,7 @@ function selectDesempenhoMateria(key) {
   desempenhoActiveMatKey = key;
   renderDesempenho(key);
 }
-//  CONTEÚDOS FERRETTO
+//  EDITAL DATAPREV
 // ═══════════════════════════════════════════════════════════════════════════
 let coActiveMatKey = null;
 
@@ -2314,10 +4024,10 @@ function coSelectMat(key) {
 function renderCoGlobalBar() {
   const g = globalProgress();
   document.getElementById('co-global-bar').innerHTML = `
-    <span class="global-prog-label">Progresso geral Ferretto</span>
+    <span class="global-prog-label">Progresso geral do edital</span>
     <div class="global-prog-bg"><div class="global-prog-fill" style="width:${g.pct}%"></div></div>
     <span class="global-prog-pct">${g.pct}%</span>
-    <span style="font-family:var(--font-mono);font-size:8px;color:var(--text3);white-space:nowrap">${g.feitas}/${g.total} aulas</span>`;
+    <span style="font-family:var(--font-mono);font-size:8px;color:var(--text3);white-space:nowrap">${g.feitas}/${g.total} itens</span>`;
 }
 
 function renderCoContent(matKey) {
@@ -2346,7 +4056,7 @@ function renderCoContent(matKey) {
         <div class="aula-cb ${done?'checked':''}" onclick="toggleAula('${ass.key}',${i},${ass.totalAulas},this)">
           ${done?`<svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 3"/></svg>`:''}
         </div>
-        <span class="aula-label">Aula ${i+1}</span>
+        <span class="aula-label">Item ${i+1}</span>
       </div>`;
     }).join('');
 
@@ -2375,7 +4085,7 @@ function renderCoContent(matKey) {
       <div class="co-disc-title">${mat.label}</div>
       <div class="co-disc-meta">
         <span class="co-disc-meta-item">${mat.assuntos.length} assuntos</span>
-        <span class="co-disc-meta-item">Total: <span>${mp.total}</span> aulas</span>
+        <span class="co-disc-meta-item">Total: <span>${mp.total}</span> itens</span>
         <span class="co-disc-meta-item">Concluídas: <span>${mp.feitas}</span></span>
         <div class="co-progress-bar"><div class="co-progress-fill" style="width:${mp.pct}%;background:${area.color}"></div></div>
         <span class="co-disc-meta-item" style="color:${area.color};font-weight:500">${mp.pct}%</span>
@@ -2431,7 +4141,7 @@ function checkAll(assKey, total, val, ev) {
   renderCoContent(coActiveMatKey);
   renderCoNav();
   renderCoGlobalBar();
-  showToast(val ? `${total} aulas concluídas` : 'Aulas desmarcadas');
+  showToast(val ? `${total} itens concluídos` : 'Itens desmarcados');
 }
 
 function updateMatProgressUI(matKey) {
@@ -2467,8 +4177,8 @@ function renderSessoes() {
     }
     document.getElementById('sessoes-list').innerHTML = filtered.map(s => {
       const areaObj = ENEM_DATA.find(a=>a.key===s.area);
-      const tipoKey = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'aula';
-      const tl = {aula:'Aula / Teoria',exercicios:'Exercícios',revisao:'Revisão',simulado:'Simulado',livro:'Livro / Apostila'}[tipoKey]||tipoKey;
+      const tipoKey = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'teoria';
+      const tl = SESSION_TYPE_LABELS[tipoKey] || tipoKey;
       const q = normalizeSessionQuestions(s);
       const qInfo = q.feitas>0 ? `${q.corretas}/${q.feitas} - ${formatPerfPct(q.percentual)}` : '';
       const discLabel = s.disc || [s.materia, s.assunto].filter(Boolean).join(' › ') || '—';
@@ -2495,25 +4205,58 @@ function renderSessoes() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-//  ERROS — versão avançada ENEM
+//  ERROS — concurso FGV
 // ═══════════════════════════════════════════════════════════════════════════
+const SESSION_TYPE_LABELS = {
+  teoria: 'Teoria',
+  aula: 'Teoria',
+  questoes_fgv: 'Questões FGV',
+  questoes_gerais: 'Questões gerais',
+  exercicios: 'Questões FGV',
+  exercicio: 'Questões FGV',
+  revisao: 'Revisão',
+  lei_seca: 'Lei seca',
+  flashcards: 'Flashcards',
+  simulado: 'Simulado',
+  correcao_simulado: 'Correção de simulado',
+  caderno_erros: 'Caderno de erros',
+  feynman: 'Feynman',
+  pratica: 'Projeto/prática',
+  livro: 'Lei seca',
+  revisao_rapida: 'Revisão rápida',
+};
+
 const TIPO_ERRO = {
-  interpretacao:  'Interpretação de texto',
-  conceitual:     'Erro conceitual',
-  calculo:        'Erro de cálculo',
-  desatencao:     'Desatenção',
-  confusao:       'Confusão entre conceitos',
-  grafico:        'Leitura de gráfico/tabela',
-  estrategia:     'Estratégia inadequada',
-  conteudo:       'Falta de conteúdo',
-  tempo:          'Gestão de tempo',
+  interpretacao_equivocada: 'Interpretação equivocada',
+  pegadinha_fgv: 'Pegadinha da FGV',
+  conceito_fraco: 'Conceito fraco',
+  decoreba_legal: 'Decoreba legal',
+  erro_atencao: 'Erro de atenção',
+  desconhecimento: 'Erro por desconhecimento',
+  alternativa_parecida: 'Alternativa parecida',
+  confusao_conceitos: 'Confusão entre conceitos',
+  falta_revisao: 'Falta de revisão',
+  chute_sem_criterio: 'Chute sem critério',
+  questao_pratica: 'Erro em questão prática',
+  legislacao: 'Erro em legislação',
+  tecnologia_especifica: 'Erro em tecnologia específica',
+  pressa: 'Erro por pressa',
 };
 const COR_ERRO = {
-  interpretacao:'var(--blue)',  conceitual:'var(--amber)',
-  calculo:'var(--red)',         desatencao:'var(--text3)',
-  confusao:'var(--amber)',      grafico:'var(--accent)',
-  estrategia:'var(--purple)',   conteudo:'var(--red)',
-  tempo:'var(--green)',
+  interpretacao_equivocada:'var(--blue)',
+  pegadinha_fgv:'var(--accent)',
+  conceito_fraco:'var(--amber)',
+  decoreba_legal:'var(--amber)',
+  erro_atencao:'var(--text3)',
+  desconhecimento:'var(--red)',
+  alternativa_parecida:'var(--blue)',
+  confusao_conceitos:'var(--amber)',
+  falta_revisao:'var(--red)',
+  chute_sem_criterio:'var(--text3)',
+  questao_pratica:'var(--green)',
+  legislacao:'var(--accent)',
+  tecnologia_especifica:'var(--blue)',
+  pressa:'var(--red)',
 };
 
 function erroStatus(e) {
@@ -2531,7 +4274,7 @@ function renderErros() {
       <span class="filter-pill ${showFiltro==='reincidentes'?'active':''}" onclick="erroFiltroStatus('reincidentes')">Reincidentes</span>
       <span class="filter-pill ${showFiltro==='todos'?'active':''}" onclick="erroFiltroStatus('todos')">Todos</span>`;
     const areaPills = `
-      <span class="erros-filtros-label">Área:</span>
+      <span class="erros-filtros-label">Módulo:</span>
       <span class="filter-pill ${filterArea==='todas'?'active':''}" onclick="erroFiltroArea('todas')">Todas</span>`+
       ENEM_DATA.map(a=>`<span class="filter-pill ${filterArea===a.key?'active':''}" onclick="erroFiltroArea('${a.key}')">${a.label}</span>`).join('');
     const tipoPills = `
@@ -2574,7 +4317,7 @@ function renderErros() {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0">
           <span class="erro-date">${safeText(e.data).slice(5)||'-'}</span>
-          <span class="erro-status-badge ${stCls}" onclick="cycleErroStatus('${e.id}')">${st}</span>
+          <span class="erro-status-badge ${stCls}" onclick="cycleErroStatus('${e.id}')">${({pendente:'Pendente',revisado:'Revisado',reincidente:'Reincidente'}[st]||st)}</span>
         </div>
       </div>`;
     }).join('');
@@ -2600,47 +4343,44 @@ function toggleErroRev(id) { cycleErroStatus(id); }
 // ═══════════════════════════════════════════════════════════════════════════
 function renderSimulados() {
   if (!DB.simulados.length) {
-    document.getElementById('simulados-content').innerHTML = '<div class="empty"><p>Nenhum simulado registrado ainda.</p></div>';
+    document.getElementById('simulados-content').innerHTML = '<div class="empty"><p>Nenhum simulado FGV registrado ainda.</p></div>';
     return;
   }
   const sorted = [...DB.simulados].sort((a,b)=>b.data.localeCompare(a.data));
   document.getElementById('simulados-content').innerHTML = sorted.map(sim => {
-    const totalAc = sim.resultados.reduce((a,r)=>a+(r.acertos||0),0);
-    const totalQ  = sim.resultados.reduce((a,r)=>a+(r.total||0),0);
-    const pctTotal = totalQ>0 ? Math.round(totalAc/totalQ*100) : 0;
-    const corTotal = pctTotal>=65?'var(--green)':pctTotal>=50?'var(--amber)':'var(--red)';
-    const triEstimado = getSimuladoTriEstimativas(sim);
-    const mediaEstimado = getSimuladoTriMedia(sim);
-    const areasHtml = AREAS_SIMULADO.map(a => {
-      const r = sim.resultados.find(x=>x.area===a.key);
-      const tri = triEstimado.find(x=>x.area===a.key)?.tri || 0;
-      if (!r) return `<div class="sim-area"><div class="sim-area-name">${a.label}</div><div class="sim-area-nota" style="color:var(--text3)">—</div><div style="font-size:11px;color:var(--text3);margin-top:4px">TRI aproximada: ${tri}</div></div>`;
-      const pct = r.total>0 ? Math.round(r.acertos/r.total*100) : 0;
-      const cor = pct>=65?'var(--green)':pct>=50?'var(--amber)':'var(--red)';
-      const areaObj = ENEM_DATA.find(x=>x.key===a.key);
+    const resumo = calculateSimuladoFGV(sim);
+    const areasHtml = resumo.resultados.map(r => {
+      const cor = r.acertos === 0 ? 'var(--red)' : r.pctQuestoes >= 70 ? 'var(--green)' : r.pctQuestoes >= 50 ? 'var(--amber)' : 'var(--red)';
       return `<div class="sim-area">
-        <div class="sim-area-name" style="color:${areaObj?.color}">${a.label}</div>
-        <div class="sim-area-nota" style="color:${cor}">${pct}%</div>
-        <div class="sim-area-detail">${r.acertos}/${r.total}</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">Nota estimada (TRI aproximada): ${tri}</div>
+        <div class="sim-area-name" style="color:${cor}">${r.label}</div>
+        <div class="sim-area-nota" style="color:${cor}">${r.acertos}/${r.total}</div>
+        <div class="sim-area-detail">${formatNota(r.pontos)}/${formatNota(r.maxPontos)} pts · peso ${String(r.peso).replace('.', ',')}</div>
       </div>`;
     }).join('');
+    const zeradas = resumo.zeradas.length ? resumo.zeradas.map(z => z.label).join(', ') : 'Nenhuma';
+    const faixaTexto = resumo.faixa && resumo.faixa !== resumo.situacao ? ` · ${resumo.faixa}` : '';
     return `<div class="simulado-card">
       <div class="simulado-header">
-        <div><div class="simulado-name">${sim.nome}</div><div class="simulado-meta">${sim.data}</div></div>
+        <div><div class="simulado-name">${esc(sim.nome)}</div><div class="simulado-meta">${sim.data}</div></div>
         <div style="display:flex;align-items:flex-end;gap:8px">
           <button class="sess-btn btn-sm" onclick="editSimulado('${sim.id}')">editar</button>
           <button class="sess-btn del btn-sm" onclick="deleteSimulado('${sim.id}')">excluir</button>
-          <span style="font-family:var(--font-mono);font-size:20px;font-weight:600;color:${corTotal}">${pctTotal}%</span>
+          <span style="font-family:var(--font-mono);font-size:20px;font-weight:600;color:${resumo.statusColor}">${formatNota(resumo.notaFinal)}/115</span>
         </div>
       </div>
       <div class="sim-areas">${areasHtml}</div>
       <div class="sim-total-bar">
-        <span class="sim-total-label">${totalAc}/${totalQ} acertos</span>
-        <div class="sim-total-bar-bg"><div class="sim-total-bar-fill" style="width:${pctTotal}%;background:${corTotal}"></div></div>
-        <span class="sim-total-pct" style="color:${corTotal}">${pctTotal}%</span>
+        <span class="sim-total-label">${resumo.totalAcertos}/${resumo.totalQuestoes} acertos</span>
+        <div class="sim-total-bar-bg"><div class="sim-total-bar-fill" style="width:${resumo.aproveitamento}%;background:${resumo.statusColor}"></div></div>
+        <span class="sim-total-pct" style="color:${resumo.statusColor}">${resumo.aproveitamento}%</span>
       </div>
-      <div style="margin-top:8px;font-size:12px;color:var(--text3)">Média TRI aproximada: ${mediaEstimado}</div>
+      <div style="margin-top:8px;font-size:12px;color:var(--text2);display:flex;gap:10px;flex-wrap:wrap">
+        <span>Conhecimentos gerais: ${formatNota(resumo.pontosGerais)}/40 pts</span>
+        <span>Conhecimentos específicos: ${formatNota(resumo.pontosEspecificos)}/75 pts</span>
+        <span>Mínimo 57,5: ${resumo.atingiuMinimo ? 'sim' : 'não'}</span>
+        <span>Zerou disciplina: ${resumo.zerouDisciplina ? 'sim' : 'não'}${resumo.zerouDisciplina ? ' — ' + esc(zeradas) : ''}</span>
+      </div>
+      <div style="margin-top:7px;font-size:12px;color:${resumo.statusColor};font-weight:600">Situação: ${resumo.situacao}${faixaTexto}</div>
     </div>`;
   }).join('');
 }
@@ -2669,7 +4409,7 @@ function renderFeynman() {
       const cor = areaObj?.color||'var(--accent)';
       const discLabel = [r.materia, r.assunto].filter(Boolean).join(' › ') || r.disc || '—';
       const explic = r.explicacao ? `<div class="fy-block"><div class="fy-block-q">Explicação</div><div class="fy-block-a">${esc(r.explicacao)}</div></div>` : '';
-      const oldBlocos = r.explicacao ? '' : ['Explicação simples','Foco do ENEM','Confusões','Como o ENEM cobra','Regra mental']
+      const oldBlocos = r.explicacao ? '' : ['Explicação simples','Foco da FGV','Confusões','Como a FGV cobra','Regra mental']
         .map((q,i)=> {
           const resp = r['p'+(i+1)];
           return resp ? `<div class="fy-block"><div class="fy-block-q">${q}</div><div class="fy-block-a ${i===4?'regra':''}">${esc(resp)}</div></div>` : '';
@@ -2724,7 +4464,7 @@ function openSessaoModal(editId) {
   document.getElementById('s-qtotal').value   = '';
   document.getElementById('s-qerradas').value = '';
   document.getElementById('s-fonte').value    = '';
-  document.getElementById('s-tipo').value     = 'aula';
+  document.getElementById('s-tipo').value     = 'teoria';
   document.getElementById('s-aula-especifica').innerHTML = '<option value="">— nenhuma —</option>';
   document.getElementById('s-aula-especifica').disabled = true;
   document.getElementById('s-ativ-exercicios').checked = false;
@@ -2750,13 +4490,13 @@ function openSessaoModal(editId) {
       populateSAssuntos(materiaKey||'', assuntoKey||s.assunto||'');
       document.getElementById('s-data').value     = s.data;
       document.getElementById('s-dur').value      = s.dur;
-      document.getElementById('s-tipo').value     = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'aula';
+      document.getElementById('s-tipo').value     = s.tipoPrincipal || (s.tipo==='exercicio'?'exercicios':s.tipo) || 'teoria';
       document.getElementById('s-qtotal').value   = s.qtotal||'';
       document.getElementById('s-qerradas').value = s.qerradas||'';
       document.getElementById('s-fonte').value    = s.fonte||'';
       populateSAulaEspecifica(assuntoKey||'', s.aulaEspecifica||'');
       const atividades = s.atividadesComplementares || [];
-      document.getElementById('s-ativ-exercicios').checked = atividades.includes('Resolvi exercícios');
+      document.getElementById('s-ativ-exercicios').checked = atividades.includes('Resolvi questões');
       document.getElementById('s-ativ-corrigi-erros').checked = atividades.includes('Corrigi erros');
       document.getElementById('s-ativ-anotacoes').checked = atividades.includes('Fiz anotações');
       document.getElementById('s-ativ-revisao-ativa').checked = atividades.includes('Fiz revisão ativa');
@@ -2787,7 +4527,7 @@ function populateSMatérias(areaKey, selectedMat) {
   const sel = document.getElementById('s-materia');
   const area = ENEM_DATA.find(a=>a.key===areaKey);
   if (!area) {
-    sel.innerHTML = '<option value="">— selecione a área primeiro —</option>';
+    sel.innerHTML = '<option value="">— selecione o módulo primeiro —</option>';
     sel.removeAttribute('required');
     return;
   }
@@ -2795,7 +4535,7 @@ function populateSMatérias(areaKey, selectedMat) {
   const selectedKey = area.materias.some(m=>m.key===selectedMat)
     ? selectedMat
     : (area.materias.find(m=>m.label===selectedMat)?.key || '');
-  sel.innerHTML = '<option value="">— selecione a matéria —</option>' +
+  sel.innerHTML = '<option value="">— selecione a disciplina —</option>' +
     area.materias.map(m=>`<option value="${m.key}" ${m.key===selectedKey?'selected':''}>${m.label}</option>`).join('');
 }
 function populateSAssuntos(matKey, selectedAss) {
@@ -2806,7 +4546,7 @@ function populateSAssuntos(matKey, selectedAss) {
     if (mat) break;
   }
   if (!mat) {
-    sel.innerHTML = '<option value="">— selecione a matéria primeiro —</option>';
+    sel.innerHTML = '<option value="">— selecione a disciplina primeiro —</option>';
     sel.disabled = true;
     return;
   }
@@ -2860,7 +4600,7 @@ function populateSAulaEspecifica(assuntoKey, selectedAula) {
   const selectedIndex = parseInt(selectedAula, 10);
   let options = '<option value="">— nenhuma —</option>';
   for (let i = 1; i <= max; i++) {
-    options += `<option value="${i}" ${i===selectedIndex?'selected':''}>Aula ${i}</option>`;
+    options += `<option value="${i}" ${i===selectedIndex?'selected':''}>Item ${i}</option>`;
   }
   sel.innerHTML = options;
   sel.disabled = false;
@@ -2870,12 +4610,12 @@ function populateFYMatérias(areaKey, selectedMat) {
   const sel = document.getElementById('fy-materia');
   const area = ENEM_DATA.find(a=>a.key===areaKey);
   if (!area) {
-    sel.innerHTML = '<option value="">— selecione a área primeiro —</option>';
+    sel.innerHTML = '<option value="">— selecione o módulo primeiro —</option>';
     sel.removeAttribute('required');
     return;
   }
   sel.setAttribute('required','');
-  sel.innerHTML = '<option value="">— selecione a matéria —</option>' +
+  sel.innerHTML = '<option value="">— selecione a disciplina —</option>' +
     area.materias.map(m=>`<option value="${m.key}" ${m.key===selectedMat?'selected':''}>${m.label}</option>`).join('');
 }
 function populateFYAssuntos(matKey, selectedAss) {
@@ -2886,7 +4626,7 @@ function populateFYAssuntos(matKey, selectedAss) {
     if (mat) break;
   }
   if (!mat) {
-    sel.innerHTML = '<option value="">— selecione a matéria primeiro —</option>';
+    sel.innerHTML = '<option value="">— selecione a disciplina primeiro —</option>';
     return;
   }
   sel.innerHTML = '<option value="">— selecione o assunto —</option>' +
@@ -2938,16 +4678,16 @@ function saveSessao(ev) {
   const qerradas = parseInt(document.getElementById('s-qerradas').value)||0;
   const fonte    = document.getElementById('s-fonte').value.trim();
   const aulaNumero = parseInt(document.getElementById('s-aula-especifica').value, 10) || '';
-  const aulaEspecifica = aulaNumero ? `Aula ${aulaNumero}` : '';
+  const aulaEspecifica = aulaNumero ? `Item ${aulaNumero}` : '';
   const atividadesComplementares = [
-    ['s-ativ-exercicios','Resolvi exercícios'],
+    ['s-ativ-exercicios','Resolvi questões'],
     ['s-ativ-corrigi-erros','Corrigi erros'],
     ['s-ativ-anotacoes','Fiz anotações'],
     ['s-ativ-revisao-ativa','Fiz revisão ativa'],
     ['s-ativ-registrei-erros','Registrei erros no caderno'],
   ].filter(([id]) => document.getElementById(id).checked).map(([,label]) => label);
 
-  if (!area)       { showToast('Selecione a área ENEM', true); return; }
+  if (!area)       { showToast('Selecione o módulo', true); return; }
   if (!materiaKey) { showToast('Selecione a matéria', true); return; }
   if (!tipoPrincipal) { showToast('Escolha o tipo principal da sessão', true); return; }
   if (qerradas > qtotal && qtotal > 0) { showToast('Erradas não pode superar total', true); return; }
@@ -2995,7 +4735,7 @@ function saveSessao(ev) {
       const quantidade = Math.max(1, Math.round(safeNumber(w.querySelector(`#qe${n}-qtd`)?.value || 1)));
       DB.erros.push({
         id:uid(), sessao_id:sid, disc, area, materia, assunto,
-        tipo:  w.querySelector(`#qe${n}-tipo`)?.value||'conceitual',
+        tipo:  w.querySelector(`#qe${n}-tipo`)?.value||'conceito_fraco',
         quantidade,
         tema:  assunto || materia || '',
         obs:   safeText(w.querySelector(`#qe${n}-obs`)?.value),
@@ -3040,12 +4780,13 @@ function openSimuladoModal(editId) {
   document.getElementById('btn-salvar-simulado').textContent = editId ? 'Salvar alterações' : 'Salvar simulado';
   document.getElementById('sim-areas-form').innerHTML = AREAS_SIMULADO.map(a=>{
     const result = sim?.resultados?.find(x=>x.area===a.key) || {};
+    const acertos = Math.max(0, Math.min(a.total, Math.round(safeNumber(result.acertos))));
     return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-      <span style="flex:1;font-size:12px;color:var(--text2)">${a.label}</span>
+      <span style="flex:1;font-size:12px;color:var(--text2)"><span style="font-family:var(--font-mono);font-size:9px;color:var(--text3)">${a.modulo}</span><br>${a.label}</span>
       <label class="form-label" style="margin:0">Acertos</label>
-      <input class="form-control" id="sim-ac-${a.key}" type="number" min="0" placeholder="0" value="${result.acertos||0}" style="width:55px;font-family:var(--font-mono);text-align:center">
-      <span style="color:var(--text3);font-family:var(--font-mono);font-size:11px">/</span>
-      <input class="form-control" id="sim-tot-${a.key}" type="number" value="${result.total||45}" min="1" style="width:48px;font-family:var(--font-mono);text-align:center">
+      <input class="form-control" id="sim-ac-${a.key}" type="number" min="0" max="${a.total}" placeholder="0" value="${acertos}" style="width:60px;font-family:var(--font-mono);text-align:center">
+      <span style="color:var(--text3);font-family:var(--font-mono);font-size:11px">/ ${a.total}</span>
+      <span style="color:var(--text3);font-family:var(--font-mono);font-size:10px;width:88px;text-align:right">peso ${String(a.peso).replace('.', ',')} · máx ${formatNota(a.maxPontos)}</span>
     </div>`;
   }).join('');
   document.getElementById('modal-simulado').classList.add('open');
@@ -3054,23 +4795,20 @@ function openSimuladoModal(editId) {
 function saveSimulado(ev) {
   ev.preventDefault();
   const editId = document.getElementById('sim-edit-id').value;
-  const resultados = AREAS_SIMULADO.map(a=>({
-    area: a.key,
-    acertos: parseInt(document.getElementById('sim-ac-'+a.key)?.value)||0,
-    total:   parseInt(document.getElementById('sim-tot-'+a.key)?.value)||45,
-  }));
-  const triEstimado = AREAS_SIMULADO.map(a=>{
-    const result = resultados.find(r=>r.area===a.key) || {acertos:0};
-    return { area: a.key, tri: triEstimadoPorAcertos(result.acertos||0) };
+  const resultados = AREAS_SIMULADO.map(a=>{
+    const raw = parseInt(document.getElementById('sim-ac-'+a.key)?.value)||0;
+    return {
+      area: a.key,
+      acertos: Math.max(0, Math.min(a.total, raw)),
+      total: a.total,
+      peso: a.peso,
+    };
   });
-  const triMediaEstimado = triEstimado.length ? Math.round(triEstimado.reduce((sum,item)=>sum+item.tri,0)/triEstimado.length) : 0;
   const simData = {
     id: editId || uid(),
     nome: document.getElementById('sim-nome').value.trim(),
     data: document.getElementById('sim-data').value,
     resultados,
-    triEstimado,
-    triMediaEstimado,
   };
   if (editId) {
     const idx = DB.simulados.findIndex(x=>x.id===editId);
@@ -3115,7 +4853,7 @@ function saveFeynman(ev) {
   const explicacao = document.getElementById('fy-explicacao').value.trim();
   const data     = document.getElementById('fy-data').value;
 
-  if (!area) { showToast('Selecione a área ENEM', true); return; }
+  if (!area) { showToast('Selecione o módulo', true); return; }
   if (!materia) { showToast('Selecione a matéria', true); return; }
   if (!assunto) { showToast('Selecione o assunto', true); return; }
   if (!topico) { showToast('Descreva o tópico ou conceito', true); return; }
