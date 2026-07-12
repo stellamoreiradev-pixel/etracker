@@ -959,7 +959,7 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
 <aside class="sidebar">
   <div class="sidebar-logo">
     DATAPREV<br>Tracker
-    <small>FGV · Perfil 3 · 2026</small>
+    <small>FGV · Perfil 11 · Administração e Governança</small>
   </div>
   <nav class="nav">
     <button class="nav-item active" onclick="showView('dashboard')" data-view="dashboard">
@@ -1144,15 +1144,16 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
           <option value="teoria">Teoria</option>
           <option value="questoes_fgv">Questões FGV</option>
           <option value="questoes_gerais">Questões gerais</option>
-          <option value="revisao">Revisão</option>
           <option value="lei_seca">Lei seca</option>
+          <option value="revisao">Revisão</option>
           <option value="flashcards">Flashcards</option>
           <option value="simulado">Simulado</option>
           <option value="correcao_simulado">Correção de simulado</option>
           <option value="caderno_erros">Caderno de erros</option>
           <option value="feynman">Feynman</option>
-          <option value="pratica">Projeto/prática</option>
           <option value="revisao_rapida">Revisão rápida</option>
+          <option value="mapa_mental">Mapa mental</option>
+          <option value="leitura_edital">Leitura do edital</option>
         </select>
       </div>
       <!-- 7. Atividades complementares -->
@@ -1279,11 +1280,11 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
       </div>
       <div class="form-group">
         <label class="form-label">Tema *</label>
-        <input class="form-control" id="fy-topico" type="text" placeholder="ex: LGPD, Spring Boot, REST, SQL" maxlength="100" required>
+        <input class="form-control" id="fy-topico" type="text" placeholder="ex: Gestão por resultados, COSO II, Lei nº 14.133/2021" maxlength="100" required>
       </div>
       <div class="form-group">
         <label class="form-label">Explique como se estivesse ensinando *</label>
-        <textarea class="form-control" id="fy-explicacao" rows="5" maxlength="1000" placeholder="Qual é a regra/conceito central? Onde a FGV pode confundir? Dê um exemplo prático e uma revisão em 30 segundos." required></textarea>
+        <textarea class="form-control" id="fy-explicacao" rows="5" maxlength="1000" placeholder="Explique o conceito central, onde a FGV pode confundir, um exemplo prático e como revisar em 30 segundos." required></textarea>
       </div>
       <input type="hidden" id="fy-sessao-id" value="">
       <div class="form-footer">
@@ -1298,8 +1299,8 @@ html[data-theme="light"] .perf-row{background:var(--surface)}
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
-//  DADOS — DATAPREV 2026 · FGV · Perfil 3
-//  16 disciplinas · 356 itens do edital
+//  DADOS — DATAPREV 2026 · FGV · Perfil 11
+//  10 disciplinas · 188 itens do edital
 const ENEM_DATA = [
   {
     "key": "modulo_gerais",
@@ -1437,8 +1438,8 @@ const ENEM_DATA = [
             "totalAulas": 1
           },
           {
-            "key": "ingles_gramatica_relevante_para_entendimento_dos__2",
-            "label": "Gramática relevante para entendimento dos textos",
+            "key": "ingles_gramatica_relevante_para_o_entendimento_do_2",
+            "label": "Gramática relevante para o entendimento dos textos",
             "totalAulas": 1
           },
           {
@@ -1477,8 +1478,8 @@ const ENEM_DATA = [
             "totalAulas": 1
           },
           {
-            "key": "ingles_interpretacao_de_texto_tecnico_em_tecnolog_10",
-            "label": "Interpretação de texto técnico em tecnologia",
+            "key": "ingles_interpretacao_de_texto_tecnico_e_instituci_10",
+            "label": "Interpretação de texto técnico e institucional",
             "totalAulas": 1
           }
         ]
@@ -1820,8 +1821,8 @@ const ENEM_DATA = [
             "totalAulas": 1
           },
           {
-            "key": "legislacao_si_pd_bases_legais_23",
-            "label": "Bases legais",
+            "key": "legislacao_si_pd_bases_legais_da_lgpd_23",
+            "label": "Bases legais da LGPD",
             "totalAulas": 1
           },
           {
@@ -1864,1327 +1865,451 @@ const ENEM_DATA = [
     "color": "#4ade80",
     "materias": [
       {
-        "key": "desenvolvimento_sistemas",
-        "label": "Desenvolvimento de Sistemas",
+        "key": "fundamentos_estrategia_planejamento",
+        "label": "Fundamentos de Estratégia e Planejamento",
         "assuntos": [
           {
-            "key": "desenvolvimento_sistemas_desenvolvimento_de_sistemas_1",
-            "label": "Desenvolvimento de sistemas",
+            "key": "fundamentos_estrategia_planejamento_estrategia_organizacional_1",
+            "label": "Estratégia organizacional",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_java_versao_6_ou_superior_2",
-            "label": "Java versão 6 ou superior",
+            "key": "fundamentos_estrategia_planejamento_processo_administrativo_2",
+            "label": "Processo administrativo",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_javaee_versao_6_ou_superior_3",
-            "label": "JavaEE versão 6 ou superior",
+            "key": "fundamentos_estrategia_planejamento_processo_de_planejamento_estrategico_3",
+            "label": "Processo de planejamento estratégico",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_jakartaee_4",
-            "label": "JakartaEE",
+            "key": "fundamentos_estrategia_planejamento_administracao_por_objetivos_4",
+            "label": "Administração por objetivos",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_jpa_versao_2_ou_superior_5",
-            "label": "JPA versão 2 ou superior",
+            "key": "fundamentos_estrategia_planejamento_gestao_por_resultados_5",
+            "label": "Gestão por resultados",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_javascript_6",
-            "label": "JavaScript",
+            "key": "fundamentos_estrategia_planejamento_processo_decisorio_6",
+            "label": "Processo decisório",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_junit_7",
-            "label": "JUnit",
+            "key": "fundamentos_estrategia_planejamento_sistemas_de_medicao_de_desempenho_organiza_7",
+            "label": "Sistemas de medição de desempenho organizacional",
             "totalAulas": 1
           },
           {
-            "key": "desenvolvimento_sistemas_hibernate_8",
-            "label": "Hibernate",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_jsf_9",
-            "label": "JSF",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_primefaces_10",
-            "label": "Primefaces",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_spring_11",
-            "label": "Spring",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_spring_cloud_12",
-            "label": "Spring Cloud",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_spring_boot_13",
-            "label": "Spring Boot",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_desenvolvimento_android_14",
-            "label": "Desenvolvimento Android",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_desenvolvimento_ios_15",
-            "label": "Desenvolvimento iOS",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_desenvolvimento_low_code_16",
-            "label": "Desenvolvimento low-code",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_desenvolvimento_no_code_17",
-            "label": "Desenvolvimento no-code",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_analise_estatica_de_codigo_fonte_18",
-            "label": "Análise estática de código-fonte",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_clean_code_19",
-            "label": "Clean Code",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_sonarqube_20",
-            "label": "SonarQube",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_codificacao_de_software_transacional_21",
-            "label": "Codificação de software transacional",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_codificacao_de_software_analitico_22",
-            "label": "Codificação de software analítico",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_codificacao_de_software_mobile_23",
-            "label": "Codificação de software mobile",
-            "totalAulas": 1
-          },
-          {
-            "key": "desenvolvimento_sistemas_codificacao_de_apis_24",
-            "label": "Codificação de APIs",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "arquitetura_integracao",
-        "label": "Arquitetura de Software e Integração",
-        "assuntos": [
-          {
-            "key": "arquitetura_integracao_arquitetura_de_software_1",
-            "label": "Arquitetura de software",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_interoperabilidade_de_sistemas_2",
-            "label": "Interoperabilidade de sistemas",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_arquitetura_orientada_a_servicos_3",
-            "label": "Arquitetura orientada a serviços",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_linguagem_orientada_a_servicos_4",
-            "label": "Linguagem orientada a serviços",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_web_services_5",
-            "label": "Web services",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_mensageria_6",
-            "label": "Mensageria",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_apis_7",
-            "label": "APIs",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_swagger_8",
-            "label": "Swagger",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_arquitetura_orientada_a_objetos_9",
-            "label": "Arquitetura orientada a objetos",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_linguagem_orientada_a_objetos_10",
-            "label": "Linguagem orientada a objetos",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_arquitetura_de_aplicacoes_web_11",
-            "label": "Arquitetura de aplicações web",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_servidor_de_aplicacoes_12",
-            "label": "Servidor de aplicações",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_servidor_web_13",
-            "label": "Servidor web",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_internet_14",
-            "label": "Internet",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_extranet_15",
-            "label": "Extranet",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_intranet_16",
-            "label": "Intranet",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_portais_17",
-            "label": "Portais",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_padroes_xml_18",
-            "label": "Padrões XML",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_xslt_19",
-            "label": "XSLT",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_uddi_20",
-            "label": "UDDI",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_rest_21",
-            "label": "REST",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_json_22",
-            "label": "JSON",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_https_23",
-            "label": "HTTPS",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_ssl_tls_24",
-            "label": "SSL/TLS",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_blockchain_25",
-            "label": "Blockchain",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_design_de_software_26",
-            "label": "Design de software",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_arquitetura_hexagonal_27",
-            "label": "Arquitetura hexagonal",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_microsservicos_28",
-            "label": "Microsserviços",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_orquestracao_de_servicos_29",
-            "label": "Orquestração de serviços",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_api_gateway_30",
-            "label": "API Gateway",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_containers_31",
-            "label": "Containers",
-            "totalAulas": 1
-          },
-          {
-            "key": "arquitetura_integracao_transacoes_distribuidas_32",
-            "label": "Transações distribuídas",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "testes_software",
-        "label": "Testes de Software",
-        "assuntos": [
-          {
-            "key": "testes_software_conceitos_basicos_de_testes_de_aplicacoes_1",
-            "label": "Conceitos básicos de testes de aplicações",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_unitarios_2",
-            "label": "Testes unitários",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_de_integracao_3",
-            "label": "Testes de integração",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_ageis_4",
-            "label": "Testes ágeis",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_teste_de_usabilidade_de_software_5",
-            "label": "Teste de usabilidade de software",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_automatizados_6",
-            "label": "Testes automatizados",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_tipos_de_testes_7",
-            "label": "Tipos de testes",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_test_driven_development_8",
-            "label": "Test-driven development",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_tdd_9",
-            "label": "TDD",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_gestao_do_ciclo_de_vida_de_testes_10",
-            "label": "Gestão do ciclo de vida de testes",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_rpa_robotic_process_automation_11",
-            "label": "RPA — robotic process automation",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_criterios_de_aceite_12",
-            "label": "Critérios de aceite",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_massa_de_testes_13",
-            "label": "Massa de testes",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_cobertura_de_testes_14",
-            "label": "Cobertura de testes",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_estrategia_de_testes_15",
-            "label": "Estratégia de testes",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_em_apis_16",
-            "label": "Testes em APIs",
-            "totalAulas": 1
-          },
-          {
-            "key": "testes_software_testes_em_aplicacoes_web_17",
-            "label": "Testes em aplicações web",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "metodologias_metricas",
-        "label": "Metodologias Ágeis, Reuso e Métricas",
-        "assuntos": [
-          {
-            "key": "metodologias_metricas_metodologias_ageis_de_desenvolvimento_1",
-            "label": "Metodologias ágeis de desenvolvimento",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_scrum_2",
-            "label": "Scrum",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_papeis_do_scrum_3",
-            "label": "Papéis do Scrum",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_eventos_do_scrum_4",
-            "label": "Eventos do Scrum",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_artefatos_do_scrum_5",
-            "label": "Artefatos do Scrum",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_kanban_6",
-            "label": "Kanban",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_xp_7",
-            "label": "XP",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_padroes_de_desenvolvimento_8",
-            "label": "Padrões de desenvolvimento",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_reuso_de_software_9",
-            "label": "Reuso de software",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_metodologia_de_ponto_de_funcao_10",
-            "label": "Metodologia de Ponto de Função",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_story_points_11",
-            "label": "Story Points",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_backlog_12",
-            "label": "Backlog",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_sprint_13",
-            "label": "Sprint",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_product_owner_14",
-            "label": "Product Owner",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_scrum_master_15",
-            "label": "Scrum Master",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_time_de_desenvolvimento_16",
-            "label": "Time de desenvolvimento",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_incremento_17",
-            "label": "Incremento",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_definition_of_done_18",
-            "label": "Definition of Done",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_fluxo_puxado_19",
-            "label": "Fluxo puxado",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_wip_20",
-            "label": "WIP",
-            "totalAulas": 1
-          },
-          {
-            "key": "metodologias_metricas_entrega_incremental_21",
-            "label": "Entrega incremental",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "engenharia_requisitos",
-        "label": "Engenharia de Requisitos",
-        "assuntos": [
-          {
-            "key": "engenharia_requisitos_engenharia_de_requisitos_1",
-            "label": "Engenharia de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_classificacao_de_requisitos_2",
-            "label": "Classificação de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_processo_de_engenharia_de_requisitos_3",
-            "label": "Processo de engenharia de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_tecnicas_de_elicitacao_de_requisitos_4",
-            "label": "Técnicas de elicitação de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_requisitos_funcionais_5",
-            "label": "Requisitos funcionais",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_requisitos_nao_funcionais_6",
-            "label": "Requisitos não funcionais",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_regras_de_negocio_7",
-            "label": "Regras de negócio",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_analise_de_requisitos_8",
-            "label": "Análise de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_especificacao_de_requisitos_9",
-            "label": "Especificação de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_validacao_de_requisitos_10",
-            "label": "Validação de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_gerenciamento_de_requisitos_11",
-            "label": "Gerenciamento de requisitos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_rastreabilidade_12",
-            "label": "Rastreabilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_casos_de_uso_13",
-            "label": "Casos de uso",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_historias_de_usuario_14",
-            "label": "Histórias de usuário",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_prototipos_15",
-            "label": "Protótipos",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_criterios_de_aceite_16",
-            "label": "Critérios de aceite",
-            "totalAulas": 1
-          },
-          {
-            "key": "engenharia_requisitos_priorizacao_de_requisitos_17",
-            "label": "Priorização de requisitos",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "frontend_ux_portais",
-        "label": "Frontend, UX, Acessibilidade e Portais",
-        "assuntos": [
-          {
-            "key": "frontend_ux_portais_html_1",
-            "label": "HTML",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_css_2",
-            "label": "CSS",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_ux_3",
-            "label": "UX",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_ajax_4",
-            "label": "Ajax",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_vuejs_5",
-            "label": "VueJS",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_angular_6",
-            "label": "Angular",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_react_7",
-            "label": "React",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_padroes_de_frontend_8",
-            "label": "Padrões de frontend",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_spa_9",
-            "label": "SPA",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_pwa_10",
-            "label": "PWA",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_user_experience_11",
-            "label": "User Experience",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_sistemas_de_gestao_de_conteudo_12",
-            "label": "Sistemas de gestão de conteúdo",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_conceitos_basicos_de_cms_13",
-            "label": "Conceitos básicos de CMS",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_aplicacoes_de_cms_14",
-            "label": "Aplicações de CMS",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_arquitetura_de_informacao_15",
-            "label": "Arquitetura de informação",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_portais_corporativos_16",
-            "label": "Portais corporativos",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_workflow_17",
-            "label": "Workflow",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_acessibilidade_18",
-            "label": "Acessibilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_usabilidade_19",
-            "label": "Usabilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_desenho_de_interacao_em_aplicacoes_web_20",
-            "label": "Desenho de interação em aplicações web",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_planejamento_de_interacao_em_aplicacoes_we_21",
-            "label": "Planejamento de interação em aplicações web",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_interface_de_usuario_22",
-            "label": "Interface de usuário",
-            "totalAulas": 1
-          },
-          {
-            "key": "frontend_ux_portais_design_responsivo_23",
-            "label": "Design responsivo",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "devops_git_config",
-        "label": "DevOps, Git e Configuração",
-        "assuntos": [
-          {
-            "key": "devops_git_config_devops_1",
-            "label": "DevOps",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_git_2",
-            "label": "Git",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_gestao_da_configuracao_3",
-            "label": "Gestão da configuração",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_controle_de_versao_4",
-            "label": "Controle de versão",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_branches_5",
-            "label": "Branches",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_merge_6",
-            "label": "Merge",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_pull_request_7",
-            "label": "Pull request",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_versionamento_de_software_8",
-            "label": "Versionamento de software",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_integracao_continua_9",
-            "label": "Integração contínua",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_entrega_continua_10",
-            "label": "Entrega contínua",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_build_11",
-            "label": "Build",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_deploy_12",
-            "label": "Deploy",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_pipeline_13",
-            "label": "Pipeline",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_ambientes_de_desenvolvimento_14",
-            "label": "Ambientes de desenvolvimento",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_ambiente_de_homologacao_15",
-            "label": "Ambiente de homologação",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_ambiente_de_producao_16",
-            "label": "Ambiente de produção",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_gestao_de_mudancas_17",
-            "label": "Gestão de mudanças",
-            "totalAulas": 1
-          },
-          {
-            "key": "devops_git_config_gestao_de_configuracao_aplicada_a_software_18",
-            "label": "Gestão de configuração aplicada a software",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "seguranca_informacao",
-        "label": "Segurança da Informação",
-        "assuntos": [
-          {
-            "key": "seguranca_informacao_politicas_de_seguranca_da_informacao_1",
-            "label": "Políticas de segurança da informação",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_procedimentos_de_seguranca_2",
-            "label": "Procedimentos de segurança",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_conceitos_gerais_de_gerenciamento_de_segur_3",
-            "label": "Conceitos gerais de gerenciamento de segurança",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_abnt_nbr_iso_iec_27001_2022_4",
-            "label": "ABNT NBR ISO/IEC 27001:2022",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_abnt_nbr_iso_iec_27002_2022_5",
-            "label": "ABNT NBR ISO/IEC 27002:2022",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_confiabilidade_6",
-            "label": "Confiabilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_integridade_7",
-            "label": "Integridade",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_disponibilidade_8",
-            "label": "Disponibilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_mecanismos_de_seguranca_9",
-            "label": "Mecanismos de segurança",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_controle_de_acesso_10",
-            "label": "Controle de acesso",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_oauth2_11",
-            "label": "OAuth2",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_sso_single_sign_on_12",
-            "label": "SSO — Single Sign-On",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_gerencia_de_riscos_13",
-            "label": "Gerência de riscos",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_ameaca_14",
-            "label": "Ameaça",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_vulnerabilidade_15",
-            "label": "Vulnerabilidade",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_impacto_16",
-            "label": "Impacto",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_sdl_security_development_lifecycle_17",
-            "label": "SDL — Security Development Lifecycle",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_owasp_top_10_18",
-            "label": "OWASP Top 10",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_analise_estatica_de_codigo_19",
-            "label": "Análise estática de código",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_sast_20",
-            "label": "SAST",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_analise_dinamica_de_codigo_21",
-            "label": "Análise dinâmica de código",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_dast_22",
-            "label": "DAST",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_seguranca_em_apis_23",
-            "label": "Segurança em APIs",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_seguranca_em_aplicacoes_web_24",
-            "label": "Segurança em aplicações web",
-            "totalAulas": 1
-          },
-          {
-            "key": "seguranca_informacao_vulnerabilidades_comuns_em_sistemas_web_25",
-            "label": "Vulnerabilidades comuns em sistemas web",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "banco_dados",
-        "label": "Banco de Dados",
-        "assuntos": [
-          {
-            "key": "banco_dados_modelagem_de_dados_conceitual_1",
-            "label": "Modelagem de dados conceitual",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_modelagem_de_dados_logica_2",
-            "label": "Modelagem de dados lógica",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_modelagem_de_dados_fisica_3",
-            "label": "Modelagem de dados física",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_abordagem_relacional_4",
-            "label": "Abordagem relacional",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_abordagem_multidimensional_5",
-            "label": "Abordagem multidimensional",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_normalizacao_6",
-            "label": "Normalização",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_integridade_referencial_7",
-            "label": "Integridade referencial",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_metadados_8",
-            "label": "Metadados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_modelagem_dimensional_9",
-            "label": "Modelagem dimensional",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_sql_10",
-            "label": "SQL",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_ddl_11",
-            "label": "DDL",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_dml_12",
-            "label": "DML",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_sgbd_13",
-            "label": "SGBD",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_propriedades_de_banco_de_dados_14",
-            "label": "Propriedades de banco de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_banco_de_dados_nosql_15",
-            "label": "Banco de dados NoSQL",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_banco_de_dados_em_memoria_16",
-            "label": "Banco de dados em memória",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_data_lakes_17",
-            "label": "Data lakes",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_solucoes_para_big_data_18",
-            "label": "Soluções para Big Data",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_dados_estruturados_19",
-            "label": "Dados estruturados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_dados_nao_estruturados_20",
-            "label": "Dados não estruturados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_avaliacao_de_modelos_de_dados_21",
-            "label": "Avaliação de modelos de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_tecnicas_de_integracao_de_dados_22",
-            "label": "Técnicas de integração de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_tecnicas_de_ingestao_de_dados_23",
-            "label": "Técnicas de ingestão de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_etl_24",
-            "label": "ETL",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_elt_25",
-            "label": "ELT",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_transferencia_de_arquivos_26",
-            "label": "Transferência de arquivos",
-            "totalAulas": 1
-          },
-          {
-            "key": "banco_dados_integracao_via_base_de_dados_27",
-            "label": "Integração via base de dados",
-            "totalAulas": 1
-          }
-        ]
-      },
-      {
-        "key": "bi_dados_bigdata",
-        "label": "Business Intelligence, Dados e Big Data",
-        "assuntos": [
-          {
-            "key": "bi_dados_bigdata_conceitos_de_business_intelligence_1",
-            "label": "Conceitos de Business Intelligence",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_fundamentos_de_bi_2",
-            "label": "Fundamentos de BI",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_caracteristicas_de_bi_3",
-            "label": "Características de BI",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_tecnicas_de_bi_4",
-            "label": "Técnicas de BI",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_metodos_de_bi_5",
-            "label": "Métodos de BI",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_sistemas_de_suporte_a_decisao_6",
-            "label": "Sistemas de suporte à decisão",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_gestao_de_conteudo_7",
-            "label": "Gestão de conteúdo",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_data_warehouse_8",
-            "label": "Data warehouse",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_etl_em_data_warehouse_9",
-            "label": "ETL em data warehouse",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_olap_10",
-            "label": "OLAP",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_data_mining_11",
-            "label": "Data mining",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_visualizacao_de_dados_12",
-            "label": "Visualização de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_bancos_de_dados_individuais_13",
-            "label": "Bancos de dados individuais",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_cubos_14",
-            "label": "Cubos",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_mapeamento_de_fontes_de_dados_15",
-            "label": "Mapeamento de fontes de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_tecnicas_de_coleta_de_dados_16",
-            "label": "Técnicas de coleta de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_arquitetura_de_business_intelligence_17",
-            "label": "Arquitetura de Business Intelligence",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_analise_de_dados_18",
-            "label": "Análise de dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_big_data_19",
-            "label": "Big Data",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_inteligencia_artificial_aplicada_a_dados_20",
-            "label": "Inteligência artificial aplicada a dados",
-            "totalAulas": 1
-          },
-          {
-            "key": "bi_dados_bigdata_indicadores_21",
+            "key": "fundamentos_estrategia_planejamento_indicadores_8",
             "label": "Indicadores",
             "totalAulas": 1
           },
           {
-            "key": "bi_dados_bigdata_dashboards_22",
-            "label": "Dashboards",
+            "key": "fundamentos_estrategia_planejamento_estrutura_organizacional_9",
+            "label": "Estrutura organizacional",
             "totalAulas": 1
           },
           {
-            "key": "bi_dados_bigdata_relatorios_gerenciais_23",
-            "label": "Relatórios gerenciais",
+            "key": "fundamentos_estrategia_planejamento_avaliacao_de_desempenho_institucional_10",
+            "label": "Avaliação de desempenho institucional",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_gestao_da_qualidade_11",
+            "label": "Gestão da qualidade",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_gestao_de_projetos_12",
+            "label": "Gestão de projetos",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_benchmarking_13",
+            "label": "Benchmarking",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_aspectos_sociais_ambientais_e_de_governanc_14",
+            "label": "Aspectos sociais, ambientais e de governança na administração pública",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_asg_na_administracao_publica_15",
+            "label": "ASG na administração pública",
+            "totalAulas": 1
+          },
+          {
+            "key": "fundamentos_estrategia_planejamento_gestao_por_processos_16",
+            "label": "Gestão por processos",
             "totalAulas": 1
           }
         ]
       },
       {
-        "key": "gestao_governanca_ti",
-        "label": "Gestão e Governança de TI",
+        "key": "gestao_pessoas",
+        "label": "Gestão de Pessoas",
         "assuntos": [
           {
-            "key": "gestao_governanca_ti_gerenciamento_de_projetos_1",
-            "label": "Gerenciamento de projetos",
+            "key": "gestao_pessoas_recrutamento_e_selecao_1",
+            "label": "Recrutamento e seleção",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_conceitos_de_projetos_2",
-            "label": "Conceitos de projetos",
+            "key": "gestao_pessoas_avaliacao_de_desempenho_2",
+            "label": "Avaliação de desempenho",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_areas_de_conhecimento_3",
-            "label": "Áreas de conhecimento",
+            "key": "gestao_pessoas_sistemas_de_recompensas_3",
+            "label": "Sistemas de recompensas",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_programas_4",
-            "label": "Programas",
+            "key": "gestao_pessoas_gestao_por_competencias_4",
+            "label": "Gestão por competências",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_portfolio_5",
-            "label": "Portfólio",
+            "key": "gestao_pessoas_lideranca_5",
+            "label": "Liderança",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_abordagem_tradicional_6",
-            "label": "Abordagem tradicional",
+            "key": "gestao_pessoas_desenvolvimento_gerencial_6",
+            "label": "Desenvolvimento gerencial",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_abordagem_hibrida_7",
-            "label": "Abordagem híbrida",
+            "key": "gestao_pessoas_clima_organizacional_7",
+            "label": "Clima organizacional",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_abordagem_agil_8",
-            "label": "Abordagem ágil",
+            "key": "gestao_pessoas_cultura_organizacional_8",
+            "label": "Cultura organizacional",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_scrum_como_framework_de_gestao_9",
-            "label": "Scrum como framework de gestão",
+            "key": "gestao_pessoas_grupos_de_trabalho_9",
+            "label": "Grupos de trabalho",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_lean_10",
-            "label": "Lean",
+            "key": "gestao_pessoas_equipes_de_trabalho_10",
+            "label": "Equipes de trabalho",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_kanban_11",
-            "label": "Kanban",
+            "key": "gestao_pessoas_qualidade_de_vida_no_trabalho_11",
+            "label": "Qualidade de vida no trabalho",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_processos_12",
-            "label": "Processos",
+            "key": "gestao_pessoas_gestao_de_programas_de_saude_12",
+            "label": "Gestão de programas de saúde",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_grupos_de_processos_13",
-            "label": "Grupos de processos",
+            "key": "gestao_pessoas_gestao_da_mudanca_13",
+            "label": "Gestão da mudança",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_gestao_de_riscos_14",
+            "key": "gestao_pessoas_aprendizagem_organizacional_14",
+            "label": "Aprendizagem organizacional",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_pessoas_educacao_corporativa_15",
+            "label": "Educação corporativa",
+            "totalAulas": 1
+          },
+          {
+            "key": "gestao_pessoas_people_analytics_16",
+            "label": "People Analytics",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "governanca",
+        "label": "Governança",
+        "assuntos": [
+          {
+            "key": "governanca_governanca_corporativa_1",
+            "label": "Governança corporativa",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_conceitos_fundamentais_de_governanca_2",
+            "label": "Conceitos fundamentais de governança",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_abordagem_comportamental_na_governanca_3",
+            "label": "Abordagem comportamental na governança",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_assembleias_4",
+            "label": "Assembleias",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_conselhos_de_administracao_5",
+            "label": "Conselhos de administração",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_comites_tecnicos_6",
+            "label": "Comitês técnicos",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_comites_de_assessoramento_7",
+            "label": "Comitês de assessoramento",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_conselho_fiscal_8",
+            "label": "Conselho fiscal",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_diretoria_executiva_9",
+            "label": "Diretoria executiva",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_secretaria_de_governanca_10",
+            "label": "Secretaria de governança",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_areas_de_controle_e_governanca_11",
+            "label": "Áreas de controle e governança",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_metodologia_coso_ii_12",
+            "label": "Metodologia COSO II",
+            "totalAulas": 1
+          },
+          {
+            "key": "governanca_gestao_de_riscos_13",
             "label": "Gestão de riscos",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_gerenciamento_de_servicos_15",
-            "label": "Gerenciamento de serviços",
+            "key": "governanca_gestao_de_processos_de_negocio_14",
+            "label": "Gestão de processos de negócio",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_itil_v4_16",
-            "label": "ITIL v4",
+            "key": "governanca_etica_15",
+            "label": "Ética",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_conceitos_basicos_de_itil_17",
-            "label": "Conceitos básicos de ITIL",
+            "key": "governanca_moral_16",
+            "label": "Moral",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_disciplinas_de_itil_18",
-            "label": "Disciplinas de ITIL",
+            "key": "governanca_lei_n_12_527_2011_lei_de_acesso_a_informac_17",
+            "label": "Lei nº 12.527/2011 — Lei de Acesso à Informação",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "aquisicoes",
+        "label": "Aquisições",
+        "assuntos": [
+          {
+            "key": "aquisicoes_licitacoes_e_contratos_administrativos_1",
+            "label": "Licitações e contratos administrativos",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_estrutura_e_objetivos_da_itil_19",
-            "label": "Estrutura e objetivos da ITIL",
+            "key": "aquisicoes_lei_n_14_133_2021_2",
+            "label": "Lei nº 14.133/2021",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_governanca_de_ti_20",
-            "label": "Governança de TI",
+            "key": "aquisicoes_lei_n_14_133_2021_e_suas_alteracoes_3",
+            "label": "Lei nº 14.133/2021 e suas alterações",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_cobit_2019_21",
-            "label": "COBIT 2019",
+            "key": "aquisicoes_lei_das_estatais_n_13_303_2016_4",
+            "label": "Lei das Estatais nº 13.303/2016",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_estrutura_e_objetivos_do_cobit_22",
-            "label": "Estrutura e objetivos do COBIT",
+            "key": "aquisicoes_lei_n_13_303_2016_e_suas_alteracoes_5",
+            "label": "Lei nº 13.303/2016 e suas alterações",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_gestao_de_processos_23",
-            "label": "Gestão de processos",
+            "key": "aquisicoes_estudo_tecnico_preliminar_6",
+            "label": "Estudo Técnico Preliminar",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_modelagem_de_processos_de_negocio_24",
-            "label": "Modelagem de processos de negócio",
+            "key": "aquisicoes_conceito_de_etp_7",
+            "label": "Conceito de ETP",
             "totalAulas": 1
           },
           {
-            "key": "gestao_governanca_ti_bpmn_25",
-            "label": "BPMN",
+            "key": "aquisicoes_responsabilidades_pela_elaboracao_do_etp_8",
+            "label": "Responsabilidades pela elaboração do ETP",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_termo_de_referencia_9",
+            "label": "Termo de Referência",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_conceito_de_termo_de_referencia_10",
+            "label": "Conceito de Termo de Referência",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_responsabilidade_pela_elaboracao_do_termo__11",
+            "label": "Responsabilidade pela elaboração do Termo de Referência",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_planilha_de_custo_e_formacao_de_precos_12",
+            "label": "Planilha de Custo e Formação de Preços",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_gestao_de_contratos_na_administracao_publi_13",
+            "label": "Gestão de contratos na administração pública",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_fiscalizacao_de_contratos_na_administracao_14",
+            "label": "Fiscalização de contratos na administração pública",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_revisao_contratual_15",
+            "label": "Revisão contratual",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_reajuste_contratual_16",
+            "label": "Reajuste contratual",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_repactuacao_contratual_17",
+            "label": "Repactuação contratual",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_inexecucao_contratual_18",
+            "label": "Inexecução contratual",
+            "totalAulas": 1
+          },
+          {
+            "key": "aquisicoes_rescisao_contratual_19",
+            "label": "Rescisão contratual",
+            "totalAulas": 1
+          }
+        ]
+      },
+      {
+        "key": "logistica",
+        "label": "Logística",
+        "assuntos": [
+          {
+            "key": "logistica_logistica_1",
+            "label": "Logística",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_armazenagem_2",
+            "label": "Armazenagem",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_movimentacao_de_cargas_3",
+            "label": "Movimentação de cargas",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_logistica_reversa_4",
+            "label": "Logística reversa",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_fundamentos_de_logistica_5",
+            "label": "Fundamentos de logística",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_gestao_integrada_de_operacoes_6",
+            "label": "Gestão integrada de operações",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_logistica_de_suprimento_7",
+            "label": "Logística de suprimento",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_operacoes_logisticas_8",
+            "label": "Operações logísticas",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_modos_de_transporte_9",
+            "label": "Modos de transporte",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_classificacao_dos_modos_de_transporte_10",
+            "label": "Classificação dos modos de transporte",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_caracteristicas_dos_modos_de_transporte_11",
+            "label": "Características dos modos de transporte",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_escolha_dos_modos_de_transporte_12",
+            "label": "Escolha dos modos de transporte",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_logistica_4_0_13",
+            "label": "Logística 4.0",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_transformacao_digital_aplicada_a_logistica_14",
+            "label": "Transformação digital aplicada à logística",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_sistema_integrado_de_gestao_erp_15",
+            "label": "Sistema Integrado de Gestão ERP",
+            "totalAulas": 1
+          },
+          {
+            "key": "logistica_sistemas_eletronicos_de_gestao_documental_16",
+            "label": "Sistemas eletrônicos de gestão documental",
             "totalAulas": 1
           }
         ]
@@ -3236,8 +2361,8 @@ const AREAS_SIMULADO = [
     "maxPontos": 5
   },
   {
-    "key": "especificos",
-    "label": "Conhecimentos Específicos",
+    "key": "administracao_governanca",
+    "label": "Administração e Governança",
     "modulo": "Módulo II",
     "total": 30,
     "peso": 2.5,
@@ -3251,7 +2376,7 @@ const SIMULADO_MINIMO_PONTOS = 57.5;
 // ═══════════════════════════════════════════════════════════════════════════
 //  PERSISTÊNCIA
 // ═══════════════════════════════════════════════════════════════════════════
-const DB_KEY = 'dataprev_tracker_v1';
+const DB_KEY = 'dataprev_adm_governanca_tracker_v1';
 
 function loadDB() {
   try {
@@ -3326,7 +2451,7 @@ function calculateSimuladoFGV(sim = {}) {
   const zeradas = resultados.filter(r => r.acertos === 0);
   const zerouDisciplina = zeradas.length > 0;
   const atingiuMinimo = notaFinal >= SIMULADO_MINIMO_PONTOS;
-  const situacao = zerouDisciplina
+  let situacao = zerouDisciplina
     ? 'Eliminada por zerar disciplina'
     : atingiuMinimo
       ? 'Aprovada no critério mínimo'
@@ -3334,10 +2459,11 @@ function calculateSimuladoFGV(sim = {}) {
   let statusColor = 'var(--red)';
   let faixa = situacao;
   if (!zerouDisciplina && atingiuMinimo) {
-    if (notaFinal > 95) { statusColor = 'var(--accent)'; faixa = 'Excelente'; }
-    else if (notaFinal > 85) { statusColor = 'var(--green)'; faixa = 'Forte'; }
-    else if (notaFinal < 75) { statusColor = 'var(--amber)'; faixa = 'Mínimo atingido'; }
-    else { statusColor = 'var(--green)'; faixa = 'Competitiva'; }
+    situacao = notaFinal >= 75 ? 'Resultado competitivo' : 'Aprovada no critério mínimo';
+    if (notaFinal >= 95) { statusColor = 'var(--accent)'; faixa = 'Excelente'; }
+    else if (notaFinal >= 85) { statusColor = 'var(--green)'; faixa = 'Forte'; }
+    else if (notaFinal >= 75) { statusColor = 'var(--green)'; faixa = 'Bom'; }
+    else { statusColor = 'var(--amber)'; faixa = 'Mínimo atingido'; }
   }
   return {
     resultados,
@@ -3670,7 +2796,7 @@ function renderCountdown() {
     <div class="countdown-left">
       <span class="countdown-label">Contagem regressiva</span>
       <span class="countdown-title">Concurso Dataprev 2026</span>
-      <span class="countdown-sub">FGV · Perfil 3 — Desenvolvimento de Software · Prova objetiva: 11/10/2026 · ${dias} dias restantes</span>
+      <span class="countdown-sub">FGV · Perfil 11 — Administração e Governança · Prova objetiva: 11/10/2026 · ${dias} dias restantes</span>
     </div>
     <div class="countdown-units">
       <div class="countdown-unit"><div class="countdown-num">${dias}</div><div class="countdown-unit-label">dias</div></div>
@@ -4214,49 +3340,51 @@ const SESSION_TYPE_LABELS = {
   questoes_gerais: 'Questões gerais',
   exercicios: 'Questões FGV',
   exercicio: 'Questões FGV',
-  revisao: 'Revisão',
   lei_seca: 'Lei seca',
+  revisao: 'Revisão',
   flashcards: 'Flashcards',
   simulado: 'Simulado',
   correcao_simulado: 'Correção de simulado',
   caderno_erros: 'Caderno de erros',
   feynman: 'Feynman',
-  pratica: 'Projeto/prática',
-  livro: 'Lei seca',
   revisao_rapida: 'Revisão rápida',
+  mapa_mental: 'Mapa mental',
+  leitura_edital: 'Leitura do edital',
+  pratica: 'Mapa mental',
+  livro: 'Lei seca',
 };
 
 const TIPO_ERRO = {
   interpretacao_equivocada: 'Interpretação equivocada',
   pegadinha_fgv: 'Pegadinha da FGV',
-  conceito_fraco: 'Conceito fraco',
-  decoreba_legal: 'Decoreba legal',
-  erro_atencao: 'Erro de atenção',
-  desconhecimento: 'Erro por desconhecimento',
-  alternativa_parecida: 'Alternativa parecida',
+  conceito_administrativo_fraco: 'Conceito administrativo fraco',
   confusao_conceitos: 'Confusão entre conceitos',
+  legislacao: 'Erro em legislação',
+  licitacoes: 'Erro em licitações',
+  governanca: 'Erro em governança',
+  gestao_pessoas: 'Erro em gestão de pessoas',
+  logistica: 'Erro em logística',
+  erro_atencao: 'Erro de atenção',
+  alternativa_parecida: 'Alternativa parecida',
+  decoreba_mal_fixada: 'Decoreba mal fixada',
   falta_revisao: 'Falta de revisão',
   chute_sem_criterio: 'Chute sem critério',
-  questao_pratica: 'Erro em questão prática',
-  legislacao: 'Erro em legislação',
-  tecnologia_especifica: 'Erro em tecnologia específica',
-  pressa: 'Erro por pressa',
 };
 const COR_ERRO = {
   interpretacao_equivocada:'var(--blue)',
   pegadinha_fgv:'var(--accent)',
-  conceito_fraco:'var(--amber)',
-  decoreba_legal:'var(--amber)',
-  erro_atencao:'var(--text3)',
-  desconhecimento:'var(--red)',
-  alternativa_parecida:'var(--blue)',
+  conceito_administrativo_fraco:'var(--amber)',
   confusao_conceitos:'var(--amber)',
+  legislacao:'var(--accent)',
+  licitacoes:'var(--red)',
+  governanca:'var(--blue)',
+  gestao_pessoas:'var(--green)',
+  logistica:'var(--amber)',
+  erro_atencao:'var(--text3)',
+  alternativa_parecida:'var(--blue)',
+  decoreba_mal_fixada:'var(--amber)',
   falta_revisao:'var(--red)',
   chute_sem_criterio:'var(--text3)',
-  questao_pratica:'var(--green)',
-  legislacao:'var(--accent)',
-  tecnologia_especifica:'var(--blue)',
-  pressa:'var(--red)',
 };
 
 function erroStatus(e) {
@@ -4409,7 +3537,7 @@ function renderFeynman() {
       const cor = areaObj?.color||'var(--accent)';
       const discLabel = [r.materia, r.assunto].filter(Boolean).join(' › ') || r.disc || '—';
       const explic = r.explicacao ? `<div class="fy-block"><div class="fy-block-q">Explicação</div><div class="fy-block-a">${esc(r.explicacao)}</div></div>` : '';
-      const oldBlocos = r.explicacao ? '' : ['Explicação simples','Foco da FGV','Confusões','Como a FGV cobra','Regra mental']
+      const oldBlocos = r.explicacao ? '' : ['Explicação simples','Conceito central','Onde a FGV pode confundir','Exemplo prático','Revisão em 30 segundos']
         .map((q,i)=> {
           const resp = r['p'+(i+1)];
           return resp ? `<div class="fy-block"><div class="fy-block-q">${q}</div><div class="fy-block-a ${i===4?'regra':''}">${esc(resp)}</div></div>` : '';
@@ -4735,7 +3863,7 @@ function saveSessao(ev) {
       const quantidade = Math.max(1, Math.round(safeNumber(w.querySelector(`#qe${n}-qtd`)?.value || 1)));
       DB.erros.push({
         id:uid(), sessao_id:sid, disc, area, materia, assunto,
-        tipo:  w.querySelector(`#qe${n}-tipo`)?.value||'conceito_fraco',
+        tipo:  w.querySelector(`#qe${n}-tipo`)?.value||'conceito_administrativo_fraco',
         quantidade,
         tema:  assunto || materia || '',
         obs:   safeText(w.querySelector(`#qe${n}-obs`)?.value),
@@ -4900,7 +4028,7 @@ function showToast(msg,err=false) {
 function exportData() {
   const b=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(b);
-  a.download='enem-tracker-backup.json'; a.click();
+  a.download='dataprev-adm-governanca-backup.json'; a.click();
 }
 function clearData() {
   if (!confirm('Apagar todo o progresso? Esta ação não pode ser desfeita.')) return;
